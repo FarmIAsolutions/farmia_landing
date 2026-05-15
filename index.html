@@ -3,154 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FarmIA - Análisis financiero por ambiente. Transformá datos dispersos en márgenes reales por zona de manejo. La única plataforma que conecta rendimiento, costos e insumos para decisiones basadas en evidencia.">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="FarmIA - Análisis Financiero por Ambiente">
-  <meta property="og:description" content="La única plataforma que conecta rendimiento, costos e insumos para calcular márgenes reales por zona de manejo.">
+  <meta name="description" content="FarmIA une agricultura de precisión, GIS, prescripciones variables, balance de suelo y costos para mostrar margen real por ambiente.">
+
+  <meta property="og:title" content="FarmIA - Agricultura de precisión rentable">
+  <meta property="og:description" content="Convertí mapas del lote en ambientes, prescripciones, balance de suelo y margen por ambiente.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/logo-icon.png">
-  
-  <!-- Favicon -->
+
   <link rel="icon" type="image/png" href="assets/Logo_farmIA__icono___1___4_-removebg-preview.png">
-  
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
-  
-  <title>FarmIA - Análisis Financiero por Ambiente</title>
+
+  <title>FarmIA - Agricultura de precisión rentable</title>
 </head>
 <body>
-  <!-- Navigation -->
-  <header class="navbar" role="banner">
-    <div class="container navbar__inner">
-      <a href="#" class="navbar__logo" aria-label="FarmIA - Inicio">
-        <img src="assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="FarmIA Logo" class="navbar__logo-icon">
-        <span class="navbar__logo-text">farm<span>IA</span></span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="FarmIA - Inicio">
+        <img src="assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="" class="brand__icon">
+        <span class="brand__word">farm<span>IA</span></span>
       </a>
-      
-      <button class="navbar__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navbar-menu">
-        <span class="navbar__toggle-line"></span>
-        <span class="navbar__toggle-line"></span>
-        <span class="navbar__toggle-line"></span>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      
-      <nav class="navbar__menu" id="navbar-menu" role="navigation" aria-label="Navegación principal">
-        <ul class="navbar__list">
-          <li><a href="#problema" class="navbar__link">Problema</a></li>
-          <li><a href="#solucion" class="navbar__link">Solución</a></li>
-          <li><a href="#servicio" class="navbar__link">Servicio</a></li>
-          <li><a href="#para-quien" class="navbar__link">¿Para quién?</a></li>
-          <!-- <li><a href="#precios" class="navbar__link">Precios</a></li> -->
-          <li><a href="#demo" class="navbar__link navbar__link--cta">Solicitar Demo</a></li>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#producto" class="nav-link">Producto</a></li>
+          <li><a href="#capacidades" class="nav-link">Capacidades</a></li>
+          <li><a href="#demo" class="nav-link">Demo</a></li>
+          <li><a href="https://app.farmiasolutions.com" class="nav-link">Iniciar sesión</a></li>
+          <li><a href="#demo" class="nav-link nav-link--cta">Agendar demo</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero__content reveal">
-          <div class="hero__badge">
-            <span class="hero__badge-dot"></span>
-            Plataforma de análisis agronómico-financiero
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-badge">
+            <span aria-hidden="true"></span>
+            GIS · Prescripciones · Balance · Margen
           </div>
-          <h1 class="hero__title">
-            Sabé cuánto ganás o perdés<br>
-            <span class="text-gradient">en cada ambiente de tu campo</span>
-          </h1>
-          <p class="hero__subtitle">
-            FarmIA conecta tus datos de <strong>rendimiento</strong>, <strong>costos</strong> e <strong>insumos</strong> para calcular <strong>márgenes reales por zona de manejo</strong>. Dejá de adivinar y empezá a decidir con números.
+          <h1>Manejás <span class="heading-accent">ambientes</span>. Ahora medí el <span class="heading-accent">margen</span> de cada uno.</h1>
+          <p>
+            FarmIA es la capa económica de tu agricultura de precisión: GIS, prescripciones variables, balance de suelo y costos conectados por lote y campaña.
           </p>
-          <div class="hero__cta">
-            <a href="#demo" class="btn btn--primary btn--lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
-              Solicitar demo
-            </a>
-            <a href="#solucion" class="btn btn--outline btn--lg">Cómo funciona</a>
+          <div class="hero-actions">
+            <a href="#demo" class="button button--primary">Agendar demo</a>
+            <a href="#capacidades" class="button button--secondary">Ver capacidades</a>
           </div>
-          
-          <div class="hero__proof">
-            <div class="hero__proof-item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>Análisis por ambiente</span>
-            </div>
-            <div class="hero__proof-item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>Márgenes en tiempo real</span>
-            </div>
-            <div class="hero__proof-item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>Decisiones basadas en datos</span>
-            </div>
+          <div class="hero-proof" aria-label="Puntos destacados">
+            <span>+250 mil ha bajo análisis</span>
+            <span>GIS y ambientes</span>
+            <span>Prescripciones exportables</span>
+            <span>Balance de suelo</span>
+            <span>Margen por ambiente</span>
           </div>
         </div>
-        
-        <div class="hero__visual reveal">
-          <div class="hero__dashboard">
-            <div class="hero__dashboard-header">
-              <span class="hero__dashboard-title">Margen por ambiente</span>
-              <span class="hero__dashboard-period">Campaña 24/25</span>
+
+        <div class="hero-visual" data-screenshot="assets/screenshots/hero-dashboard.png">
+          <div class="product-frame hero-frame">
+            <div class="frame-top">
+              <span class="window-dot window-dot--red"></span>
+              <span class="window-dot window-dot--yellow"></span>
+              <span class="window-dot window-dot--green"></span>
+              <span class="frame-path">Margen por ambiente</span>
             </div>
-            <div class="hero__dashboard-content">
-              <div class="hero__environment hero__environment--high">
-                <div class="hero__env-header">
-                  <span class="hero__env-name">Ambiente Alto</span>
-                  <span class="hero__env-hectares">420 ha</span>
-                </div>
-                <div class="hero__env-bar">
-                  <div class="hero__env-fill" style="width: 85%"></div>
-                </div>
-                <div class="hero__env-result">
-                  <span class="hero__env-value hero__env-value--positive">+$142</span>
-                  <span class="hero__env-unit">/ha</span>
-                </div>
+            <div class="hero-app">
+              <div class="app-toolbar">
+                <span>GIS</span>
+                <span>Ambientes</span>
+                <span>Prescripción</span>
+                <span>Reporte</span>
+                <span>Margen</span>
               </div>
-              <div class="hero__environment hero__environment--medium">
-                <div class="hero__env-header">
-                  <span class="hero__env-name">Ambiente Medio</span>
-                  <span class="hero__env-hectares">680 ha</span>
+              <div class="app-body">
+                <div class="map-panel">
+                  <div class="field-shape">
+                    <span class="zone zone-a"></span>
+                    <span class="zone zone-b"></span>
+                    <span class="zone zone-c"></span>
+                    <span class="zone zone-d"></span>
+                  </div>
+                  <div class="map-caption">
+                    <strong>Mapa de ambientes</strong>
+                    <span>GIS + margen por zona</span>
+                  </div>
                 </div>
-                <div class="hero__env-bar">
-                  <div class="hero__env-fill" style="width: 55%"></div>
+                <div class="side-panel">
+                  <div class="side-card side-card--active">
+                    <span>Prescripción</span>
+                    <strong>Variable por ambiente</strong>
+                    <small>Semilla y fertilización</small>
+                  </div>
+                  <div>
+                    <span>Balance</span>
+                    <strong>N 118 kg/ha</strong>
+                    <small>P objetivo 18 ppm</small>
+                  </div>
+                  <div>
+                    <span>Margen</span>
+                    <strong>+USD 38/ha</strong>
+                    <small>Promedio del lote</small>
+                  </div>
+                  <button type="button">Ver informe</button>
                 </div>
-                <div class="hero__env-result">
-                  <span class="hero__env-value">+$23</span>
-                  <span class="hero__env-unit">/ha</span>
-                </div>
-              </div>
-              <div class="hero__environment hero__environment--low">
-                <div class="hero__env-header">
-                  <span class="hero__env-name">Ambiente Bajo</span>
-                  <span class="hero__env-hectares">340 ha</span>
-                </div>
-                <div class="hero__env-bar hero__env-bar--negative">
-                  <div class="hero__env-fill" style="width: 40%"></div>
-                </div>
-                <div class="hero__env-result">
-                  <span class="hero__env-value hero__env-value--negative">-$67</span>
-                  <span class="hero__env-unit">/ha</span>
-                </div>
-              </div>
-            </div>
-            <div class="hero__dashboard-footer">
-              <div class="hero__dashboard-total">
-                <span>Margen promedio ponderado</span>
-                <strong>+$38/ha</strong>
               </div>
             </div>
           </div>
@@ -158,574 +123,307 @@
       </div>
     </section>
 
-    <!-- Problema Section -->
-    <section class="section" id="problema">
+    <section class="section capabilities-section" id="capacidades">
       <div class="container">
-        <div class="section__header reveal">
-          <span class="section__eyebrow">El problema del agro hoy</span>
-          <h2 class="section__title">Tenés los datos, pero no la respuesta</h2>
-          <p class="section__subtitle">
-            Mapas de rendimiento, planillas de costos, recetas de aplicación... todo en lugares distintos. 
-            Y la pregunta más importante sigue sin respuesta: <strong>¿cuánto ganaste realmente en cada parte de tu campo?</strong>
-          </p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Agricultura de precisión aplicada</span>
+          <h2>Del mapa a la <span class="heading-accent">decisión</span> en cuatro capacidades</h2>
+          <p>Menos planillas, más criterio agronómico conectado con números económicos.</p>
         </div>
-        
-        <div class="problems-grid">
-          <article class="problem-card reveal">
-            <div class="problem-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="7" height="7"/>
-                <rect x="14" y="3" width="7" height="7"/>
-                <rect x="14" y="14" width="7" height="7"/>
-                <rect x="3" y="14" width="7" height="7"/>
+        <div class="capabilities-grid">
+          <article>
+            <div class="capability-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 6.5 9 4l6 2.5 6-2.5v13.5L15 20l-6-2.5-6 2.5V6.5Z" />
+                <path d="M9 4v13.5M15 6.5V20" />
               </svg>
             </div>
-            <h3 class="problem-card__title">Datos dispersos</h3>
-            <p class="problem-card__text">
-              Mapas de rendimiento en un lado, costos de insumos en planillas, recetas de aplicación en otro sistema. <strong>Nada está conectado.</strong>
-            </p>
+            <span>01</span>
+            <h3>Ambientación GIS</h3>
+            <p>Capas, NDVI, cosecha, suelo y ambientes para leer cada lote con contexto.</p>
           </article>
-          
-          <article class="problem-card reveal">
-            <div class="problem-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
+          <article>
+            <div class="capability-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 17c4.5-6.5 9.5-9.5 16-10" />
+                <path d="M6 7h5v5H6zM14 14h5v5h-5z" />
               </svg>
             </div>
-            <h3 class="problem-card__title">Análisis lento y manual</h3>
-            <p class="problem-card__text">
-              Entender qué pasó en cada zona de manejo requiere horas de trabajo manual. <strong>No escala y es propenso a errores.</strong>
-            </p>
+            <span>02</span>
+            <h3>Prescripción variable</h3>
+            <p>Dosis por ambiente, ajustes simples y exportación para llevar al campo.</p>
           </article>
-          
-          <article class="problem-card reveal">
-            <div class="problem-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                <line x1="12" y1="17" x2="12.01" y2="17"/>
+          <article>
+            <div class="capability-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v18" />
+                <path d="M7 8c2.5 0 5 2 5 5-2.5 0-5-2-5-5ZM17 8c-2.5 0-5 2-5 5 2.5 0 5-2 5-5Z" />
+                <path d="M6 18h12" />
               </svg>
             </div>
-            <h3 class="problem-card__title">Decisiones a ciegas</h3>
-            <p class="problem-card__text">
-              Sin saber el margen real por ambiente, las decisiones se basan en intuición. <strong>Podrías estar invirtiendo donde no conviene.</strong>
-            </p>
+            <span>03</span>
+            <h3>Balance de suelo</h3>
+            <p>N/P, análisis y criterios defendibles para explicar cada recomendación.</p>
+          </article>
+          <article>
+            <div class="capability-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 4h14v16H5z" />
+                <path d="M8 9h8M8 13h4" />
+                <path d="M15 16l2 2 3-4" />
+              </svg>
+            </div>
+            <span>04</span>
+            <h3>Reportes de margen</h3>
+            <p>Rendimiento, costos y rentabilidad listos para compartir y decidir.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Solución Section -->
-    <section class="section section--dark" id="solucion">
+    <section class="section core-section" id="producto">
       <div class="container">
-        <div class="section__header reveal">
-          <span class="section__eyebrow section__eyebrow--light">La solución</span>
-          <h2 class="section__title section__title--white">FarmIA: Análisis financiero por ambiente</h2>
-          <p class="section__subtitle section__subtitle--light">
-            Una plataforma que conecta toda la información de tu ciclo agrícola y te muestra el margen económico real de cada zona de manejo.
-          </p>
+        <div class="section-heading section-heading--left">
+          <span class="section-eyebrow">Salida accionable</span>
+          <h2><span class="heading-accent">Precisión rentable</span>, sin hacerlo complejo</h2>
+          <p>El producto baja la agricultura de precisión a tres salidas concretas: receta, reporte y balance económico-agronómico.</p>
         </div>
-        
-        <div class="solution-flow reveal">
-          <div class="solution-step">
-            <div class="solution-step__number">1</div>
-            <div class="solution-step__content">
-              <h3>Conectás tus datos</h3>
-              <p>Mapas de rendimiento, costos de insumos, aplicaciones, siembra</p>
-            </div>
-          </div>
-          <div class="solution-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </div>
-          <div class="solution-step">
-            <div class="solution-step__number">2</div>
-            <div class="solution-step__content">
-              <h3>FarmIA procesa</h3>
-              <p>Integramos todo por zona de manejo con análisis inteligente</p>
-            </div>
-          </div>
-          <div class="solution-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </div>
-          <div class="solution-step solution-step--highlight">
-            <div class="solution-step__number">3</div>
-            <div class="solution-step__content">
-              <h3>Ves tus márgenes</h3>
-              <p>Rentabilidad real por ambiente, lote y campaña</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Quote Section -->
-    <section class="section section--accent">
-      <div class="container">
-        <blockquote class="big-quote reveal">
-          <p>"La verdadera ventaja competitiva surge cuando conectamos la información que ya existe, permitiendo tomar decisiones basadas en <strong>evidencia</strong> y no en suposiciones."</p>
-        </blockquote>
-      </div>
-    </section>
+        <div class="feature-list">
+          <article class="feature-row">
+            <div class="feature-copy">
+              <span>¿Qué aplicar? · Prescripciones variables</span>
+              <h3>Recetas variables sin planillas intermedias</h3>
+              <p>Partí de ambientes, ajustá dosis de semilla o fertilización, revisá el resultado y exportá la prescripción para llevarla al campo.</p>
+            </div>
+            <div class="screenshot-shell screenshot-shell--large" data-screenshot="assets/screenshots/prescripciones.png">
+              <div class="frame-top">
+                <span class="window-dot window-dot--red"></span>
+                <span class="window-dot window-dot--yellow"></span>
+                <span class="window-dot window-dot--green"></span>
+                <span class="frame-path">Prescripciones variables</span>
+              </div>
+              <div class="shot-content shot-content--prescription">
+                <div><span>Ambiente alto</span><strong>220 kg/ha</strong></div>
+                <div><span>Ambiente medio</span><strong>180 kg/ha</strong></div>
+                <div><span>Ambiente bajo</span><strong>140 kg/ha</strong></div>
+                <button type="button">Exportar prescripción</button>
+                <strong>Placeholder listo para screenshot real</strong>
+              </div>
+            </div>
+          </article>
 
-    <!-- Servicio Section -->
-    <section class="section" id="servicio">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__eyebrow">El servicio FarmIA</span>
-          <h2 class="section__title">Más que una plataforma: un servicio integral</h2>
-          <p class="section__subtitle">
-            No solo te damos acceso a la herramienta. Te acompañamos para que extraigas el máximo valor de tus datos.
-          </p>
-        </div>
-        
-        <div class="services-grid">
-          <article class="service-card service-card--main reveal">
-            <div class="service-card__icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
+          <article class="feature-row feature-row--reverse" id="reportes">
+            <div class="feature-copy">
+              <span>¿Cuánto dejó? · Reportes completos</span>
+              <h3>Mostrá rendimiento y rentabilidad en el mismo informe</h3>
+              <p>Compartí ambientes, rendimiento, costos, balance y margen en un reporte claro para conversar con productor, equipo técnico o empresa.</p>
             </div>
-            <h3 class="service-card__title">Informes por lote</h3>
-            <p class="service-card__text">Reportes detallados de márgenes y rendimientos para cada lote de tu operación, listos para analizar y compartir.</p>
+            <div class="screenshot-shell screenshot-shell--large" data-screenshot="assets/screenshots/reportes-completos.png">
+              <div class="frame-top">
+                <span class="window-dot window-dot--red"></span>
+                <span class="window-dot window-dot--yellow"></span>
+                <span class="window-dot window-dot--green"></span>
+                <span class="frame-path">Reporte listo para compartir</span>
+              </div>
+              <div class="shot-content shot-content--report">
+                <div class="report-header">
+                  <span>Informe por lote · Campaña 24/25</span>
+                  <strong>Margen promedio +USD 38/ha</strong>
+                </div>
+                <div class="report-kpis">
+                  <span>Rinde 4.8 tn/ha</span>
+                  <span>Costos USD 612/ha</span>
+                  <span>Margen USD 38/ha</span>
+                </div>
+                <div class="report-chart">
+                  <i style="height: 82%"></i>
+                  <i style="height: 63%"></i>
+                  <i style="height: 44%"></i>
+                  <i style="height: 28%"></i>
+                </div>
+                <button type="button">Compartir reporte</button>
+                <strong>Placeholder listo para screenshot real</strong>
+              </div>
+            </div>
           </article>
-          
-          <article class="service-card reveal">
-            <div class="service-card__icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <line x1="18" y1="20" x2="18" y2="10"/>
-                <line x1="12" y1="20" x2="12" y2="4"/>
-                <line x1="6" y1="20" x2="6" y2="14"/>
-                <path d="M2 20h20"/>
-              </svg>
+
+          <article class="feature-row">
+            <div class="feature-copy">
+              <span>¿Cómo justifico la dosis? · Balance de suelo</span>
+              <h3>Dosis defendibles conectadas al margen</h3>
+              <p>Sumá balance de N y P, análisis de suelo, costos e insumos para justificar técnicamente qué aplicar y cuánto deja cada ambiente.</p>
             </div>
-            <h3 class="service-card__title">BI comparativa</h3>
-            <p class="service-card__text">Dashboard interactivo para comparar lotes, ambientes y campañas. Visualizá tendencias y detectá oportunidades.</p>
-          </article>
-          
-          <article class="service-card reveal">
-            <div class="service-card__icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
+            <div class="screenshot-shell screenshot-shell--large" data-screenshot="assets/screenshots/balance-suelo.png">
+              <div class="frame-top">
+                <span class="window-dot window-dot--red"></span>
+                <span class="window-dot window-dot--yellow"></span>
+                <span class="window-dot window-dot--green"></span>
+                <span class="frame-path">Balance de suelo</span>
+              </div>
+              <div class="shot-content shot-content--balance">
+                <div class="bars">
+                  <i style="height: 92%"></i>
+                  <i style="height: 74%"></i>
+                  <i style="height: 54%"></i>
+                  <i style="height: 38%"></i>
+                </div>
+                <div class="metrics">
+                  <span>N requerido · 118 kg/ha</span>
+                  <span>P objetivo · 18 ppm</span>
+                  <span>Margen A1 · USD 292/ha</span>
+                </div>
+                <strong>Placeholder listo para screenshot real</strong>
+              </div>
             </div>
-            <h3 class="service-card__title">Entrenamientos técnicos</h3>
-            <p class="service-card__text">Capacitación en análisis de gráficos y datos agronómicos para que tu equipo aproveche al máximo la información.</p>
-          </article>
-          
-          <article class="service-card reveal">
-            <div class="service-card__icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">Iteración bimensual</h3>
-            <p class="service-card__text">Reuniones cada dos meses entre empresas para compartir aprendizajes, discutir resultados y mejorar continuamente.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Funcionalidades Section -->
-    <section class="section section--light" id="funcionalidades">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__eyebrow">Qué incluye la plataforma</span>
-          <h2 class="section__title">Todo lo que necesitás para analizar tu campo</h2>
-        </div>
-        
-        <div class="features-grid">
-          <article class="feature-card feature-card--main reveal">
-            <div class="feature-card__badge">Core</div>
-            <div class="feature-card__icon feature-card__icon--large">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <h3 class="feature-card__title">Márgenes por ambiente</h3>
-            <p class="feature-card__text">
-              Cálculo automático de rentabilidad por zona de manejo, integrando rendimiento real, costos de insumos y labores. <strong>El corazón de FarmIA.</strong>
-            </p>
-          </article>
-          
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
-                <line x1="8" y1="2" x2="8" y2="18"/>
-                <line x1="16" y1="6" x2="16" y2="22"/>
-              </svg>
-            </div>
-            <h3 class="feature-card__title">Mapa de cosecha</h3>
-            <p class="feature-card__text">Procesamiento y normalización de rendimientos para análisis detallado por zona.</p>
-          </article>
-          
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                <line x1="7" y1="7" x2="7.01" y2="7"/>
-              </svg>
-            </div>
-            <h3 class="feature-card__title">Costos de insumo</h3>
-            <p class="feature-card__text">Captura automática de precios y volúmenes aplicados por zona.</p>
-          </article>
-          
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <h3 class="feature-card__title">Siembra y fertilización</h3>
-            <p class="feature-card__text">Registro de densidades y fertilización asociados a cada zona del lote.</p>
-          </article>
-          
-          <article class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                <polyline points="17 6 23 6 23 12"/>
-              </svg>
-            </div>
-            <h3 class="feature-card__title">Comparación histórica</h3>
-            <p class="feature-card__text">Análisis entre campañas para evaluar resultados y mejorar decisiones.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Para quién Section -->
-    <section class="section" id="para-quien">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__eyebrow">Valor para todo el ecosistema</span>
-          <h2 class="section__title">Una sola fuente de verdad para todos</h2>
-          <p class="section__subtitle">
-            FarmIA conecta a todos los actores de la cadena agroproductiva con información confiable y unificada.
+    <section class="section platform-section" id="gestion">
+      <div class="container platform-grid">
+        <div>
+          <span class="section-eyebrow section-eyebrow--dark">Visión FarmIA</span>
+          <h2>Camino a la plataforma <span class="heading-accent heading-accent--light">all-in-one</span> del agro</h2>
+          <p>
+            Estamos construyendo la all-in-one del agro, empezando por precisión y margen. En paralelo conectamos gestión y monitoreo para que todo viva alrededor del mismo cliente, campo, lote y campaña.
           </p>
         </div>
-        
-        <div class="roles-grid">
-          <article class="role-card reveal">
-            <div class="role-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
-              </svg>
-            </div>
-            <h3 class="role-card__title">Productor</h3>
-            <p class="role-card__text">
-              Tomá decisiones estratégicas basadas en rentabilidad real por ambiente. Sabé exactamente dónde optimizar tu inversión.
-            </p>
+        <div class="platform-cards">
+          <article>
+            <h3>Gestión agro</h3>
+            <p>Lectura de facturas con IA, documentos, caja, stock, labores y costos operativos.</p>
           </article>
-          
-          <article class="role-card reveal">
-            <div class="role-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-              </svg>
-            </div>
-            <h3 class="role-card__title">Asesor Agronómico</h3>
-            <p class="role-card__text">
-              Analizá el impacto económico de cada recomendación de manejo con datos objetivos y comparables.
-            </p>
-          </article>
-          
-          <article class="role-card reveal">
-            <div class="role-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
-                <rect x="9" y="9" width="6" height="6"/>
-                <line x1="9" y1="1" x2="9" y2="4"/>
-                <line x1="15" y1="1" x2="15" y2="4"/>
-                <line x1="9" y1="20" x2="9" y2="23"/>
-                <line x1="15" y1="20" x2="15" y2="23"/>
-              </svg>
-            </div>
-            <h3 class="role-card__title">Contratista</h3>
-            <p class="role-card__text">
-              Optimizá la operación con datos claros sobre dónde y cómo aplicar insumos de forma diferenciada.
-            </p>
-          </article>
-          
-          <article class="role-card reveal">
-            <div class="role-card__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-              </svg>
-            </div>
-            <h3 class="role-card__title">Administrador</h3>
-            <p class="role-card__text">
-              Centralizá costos operativos e insumos para entender la rentabilidad y controlar el resultado económico.
-            </p>
+          <article>
+            <h3>Monitoreo</h3>
+            <p>Recorridas, alertas simples, evidencia con fotos y seguimiento por lote en evolución.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Precios Section (COMENTADO TEMPORALMENTE)
-    <section class="section section--light" id="precios">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__eyebrow">Precios transparentes</span>
-          <h2 class="section__title">Inversión que se paga sola</h2>
-          <p class="section__subtitle">
-            Un costo por hectárea que se amortiza con una sola decisión mejor informada.
-          </p>
-        </div>
-        
-        <div class="pricing-grid reveal">
-          <article class="pricing-card">
-            <div class="pricing-card__header">
-              <span class="pricing-card__range">Hasta 5.000 ha</span>
-            </div>
-            <div class="pricing-card__price">
-              <span class="pricing-card__currency">USD</span>
-              <span class="pricing-card__amount">2</span>
-              <span class="pricing-card__unit">/ha</span>
-            </div>
-            <ul class="pricing-card__features">
-              <li>Informes por lote</li>
-              <li>BI comparativa</li>
-              <li>Entrenamientos técnicos</li>
-              <li>Iteración bimensual</li>
-            </ul>
-            <a href="#demo" class="btn btn-\-outline btn-\-full">Solicitar demo</a>
-          </article>
-          
-          <article class="pricing-card">
-            <div class="pricing-card__header">
-              <span class="pricing-card__range">Hasta 7.500 ha</span>
-            </div>
-            <div class="pricing-card__price">
-              <span class="pricing-card__currency">USD</span>
-              <span class="pricing-card__amount">1,7</span>
-              <span class="pricing-card__unit">/ha</span>
-            </div>
-            <ul class="pricing-card__features">
-              <li>Informes por lote</li>
-              <li>BI comparativa</li>
-              <li>Entrenamientos técnicos</li>
-              <li>Iteración bimensual</li>
-            </ul>
-            <a href="#demo" class="btn btn-\-outline btn-\-full">Solicitar demo</a>
-          </article>
-          
-          <article class="pricing-card">
-            <div class="pricing-card__header">
-              <span class="pricing-card__range">Hasta 10.000 ha</span>
-            </div>
-            <div class="pricing-card__price">
-              <span class="pricing-card__currency">USD</span>
-              <span class="pricing-card__amount">1,4</span>
-              <span class="pricing-card__unit">/ha</span>
-            </div>
-            <ul class="pricing-card__features">
-              <li>Informes por lote</li>
-              <li>BI comparativa</li>
-              <li>Entrenamientos técnicos</li>
-              <li>Iteración bimensual</li>
-            </ul>
-            <a href="#demo" class="btn btn-\-outline btn-\-full">Solicitar demo</a>
-          </article>
-        </div>
-        
-        <p class="pricing-note reveal">
-          ¿Más de 10.000 hectáreas? <a href="#demo">Contactanos</a> para un plan personalizado.
-        </p>
-      </div>
-    </section>
-    FIN Precios Section -->
-
-    <!-- Roadmap Section -->
-    <section class="section" id="roadmap">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__eyebrow">Roadmap</span>
-          <h2 class="section__title">Dónde estamos y hacia dónde vamos</h2>
-          <p class="section__subtitle">
-            Construimos un ecosistema digital completo para el agro, empezando por lo que más impacta: el margen económico por ambiente.
-          </p>
-        </div>
-        
-        <div class="timeline reveal">
-          <article class="timeline__item timeline__item--active">
-            <div class="timeline__marker">
-              <div class="timeline__dot"></div>
-            </div>
-            <div class="timeline__content">
-              <span class="timeline__badge">Ahora</span>
-              <h3 class="timeline__title">Análisis financiero por ambiente</h3>
-              <p class="timeline__text">Márgenes por zona de manejo y decisiones basadas en rentabilidad real. El core de FarmIA funcionando.</p>
-            </div>
-          </article>
-          
-          <article class="timeline__item">
-            <div class="timeline__marker">
-              <div class="timeline__dot"></div>
-            </div>
-            <div class="timeline__content">
-              <span class="timeline__badge timeline__badge--future">2026</span>
-              <h3 class="timeline__title">Gestión integral</h3>
-              <p class="timeline__text">Integración con contabilidad, gestión de recursos humanos y control de stocks.</p>
-            </div>
-          </article>
-          
-          <article class="timeline__item">
-            <div class="timeline__marker">
-              <div class="timeline__dot"></div>
-            </div>
-            <div class="timeline__content">
-              <span class="timeline__badge timeline__badge--future">Próximamente</span>
-              <h3 class="timeline__title">ERP agrícola completo</h3>
-              <p class="timeline__text">APIs para terceros, modelos predictivos con machine learning y ecosistema de integraciones.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section class="section section--dark" id="demo">
-      <div class="container">
-        <div class="demo-content">
-          <div class="demo-text reveal">
-            <span class="section__eyebrow section__eyebrow--light">Demo</span>
-            <h2 class="section__title section__title--white">Descubrí FarmIA en acción</h2>
-            <p class="demo-description">
-              Agendá una demostración personalizada y mirá cómo FarmIA puede transformar la forma en que analizás la rentabilidad de tu campo.
-            </p>
-            <ul class="demo-list">
-              <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                Demo personalizada para tu operación
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                Análisis de un lote real con tus datos
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                Sin compromiso, sin costo
-              </li>
-            </ul>
-          </div>
-          
-          <div class="demo-form-wrapper reveal">
-            <!-- 
-              IMPORTANTE: Para recibir los formularios por email, necesitás:
-              1. Ir a https://formspree.io y crear una cuenta gratuita
-              2. Crear un nuevo form y copiar el endpoint (ej: https://formspree.io/f/xyzabcde)
-              3. Reemplazar la URL de abajo con tu endpoint de Formspree
-              
-              El plan gratuito permite 50 envíos/mes. Para más, hay planes pagos.
-            -->
-            <form class="demo-form" action="https://formspree.io/f/maqbggyl" method="POST">
-              <input type="hidden" name="_subject" value="Nueva solicitud de demo - FarmIA">
-              <h3 class="demo-form__title">Solicitá tu demo</h3>
-              
-              <div class="demo-form__group">
-                <label for="name" class="demo-form__label">Nombre</label>
-                <input type="text" id="name" name="name" class="demo-form__input" placeholder="Tu nombre" required>
-              </div>
-              
-              <div class="demo-form__group">
-                <label for="email" class="demo-form__label">Email</label>
-                <input type="email" id="email" name="email" class="demo-form__input" placeholder="tu@email.com" required>
-              </div>
-              
-              <div class="demo-form__group">
-                <label for="phone" class="demo-form__label">Teléfono</label>
-                <input type="tel" id="phone" name="phone" class="demo-form__input" placeholder="+54 9 11 1234-5678">
-              </div>
-              
-              <div class="demo-form__group">
-                <label for="hectares" class="demo-form__label">Hectáreas en producción</label>
-                <select id="hectares" name="hectares" class="demo-form__input">
-                  <option value="">Seleccioná un rango</option>
-                  <option value="menos-5000">Menos de 5.000 ha</option>
-                  <option value="5000-7500">5.000 - 7.500 ha</option>
-                  <option value="7500-10000">7.500 - 10.000 ha</option>
-                  <option value="mas-10000">Más de 10.000 ha</option>
-                </select>
-              </div>
-              
-              <div class="demo-form__group">
-                <label for="message" class="demo-form__label">Mensaje (opcional)</label>
-                <textarea id="message" name="message" class="demo-form__textarea" placeholder="Contanos sobre tu operación" rows="3"></textarea>
-              </div>
-              
-              <button type="submit" class="btn btn--primary btn--full">
-                Solicitar demo gratuita
-              </button>
-              <p class="demo-form__note">Te contactamos en menos de 24hs</p>
-            </form>
+    <section class="demo-section" id="demo">
+      <div class="container demo-grid">
+        <div class="demo-copy">
+          <span class="section-eyebrow">Demo con tus lotes</span>
+          <h2>¿Listo para saber <span class="heading-accent">cuánto gana</span> cada parte de tu campo?</h2>
+          <p>Agendá una demo con tus propios lotes. En 30 minutos vemos capas GIS, ambientes, prescripción, balance y margen para la próxima campaña.</p>
+          <div class="demo-highlights">
+            <span>30 minutos</span>
+            <span>Con tus lotes</span>
+            <span>Salida accionable</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Final CTA -->
-    <section class="section section--cta">
-      <div class="container">
-        <div class="final-cta reveal">
-          <h2 class="final-cta__title">¿Listo para saber cuánto gana cada parte de tu campo?</h2>
-          <p class="final-cta__text">Empezá a tomar decisiones basadas en márgenes reales por ambiente.</p>
-          <a href="#demo" class="btn btn--primary btn--lg">Solicitar demo</a>
-        </div>
+        <form class="demo-form" action="https://formspree.io/f/maqbggyl" method="POST">
+          <input type="hidden" name="_subject" value="Nueva solicitud de demo - FarmIA">
+          <h3>Solicitá tu demo</h3>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="field">
+              <label for="company">Empresa</label>
+              <input type="text" id="company" name="company" placeholder="Empresa o establecimiento">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="field">
+              <label for="phone">Teléfono / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+54 9 11 1234-5678">
+            </div>
+            <div class="field">
+              <label for="hectares">Hectáreas aproximadas</label>
+              <select id="hectares" name="hectares">
+                <option value="">Seleccioná un rango</option>
+                <option value="menos-5000">Menos de 5.000 ha</option>
+                <option value="5000-10000">5.000 - 10.000 ha</option>
+                <option value="10000-25000">10.000 - 25.000 ha</option>
+                <option value="mas-25000">Más de 25.000 ha</option>
+              </select>
+            </div>
+            <div class="field field--wide">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="3" placeholder="Contanos qué querés analizar o mejorar"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="button button--primary button--full">Agendar demo</button>
+          <p>administracion@farmiasolutions.com</p>
+        </form>
       </div>
     </section>
   </main>
-  <!-- comentario test -->
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <div class="footer__logo">
-          <img src="assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="FarmIA Logo" class="footer__logo-icon">
-          <span class="footer__logo-text">farm<span>IA</span></span>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a href="#inicio" class="brand brand--footer" aria-label="FarmIA - Inicio">
+          <img src="assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="" class="brand__icon">
+          <span class="brand__word">farm<span>IA</span></span>
+        </a>
+        <p>Agricultura de precisión, prescripciones y margen por ambiente.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegación del pie">
+        <span class="footer-title">Producto</span>
+        <a href="#producto">Producto</a>
+        <a href="#capacidades">Capacidades</a>
+        <a href="#demo">Demo</a>
+        <a href="https://app.farmiasolutions.com" target="_blank" rel="noopener noreferrer">Iniciar sesión</a>
+      </nav>
+
+      <div class="footer-contact">
+        <span class="footer-title">Contacto</span>
+        <div class="footer-demo-card">
+          <strong>¿Querés ver FarmIA con tus lotes?</strong>
+          <a href="#demo">Agendar demo</a>
+        </div>
+        <div class="footer-socials" aria-label="Canales de contacto">
+          <a class="footer-social" href="https://www.instagram.com/farmiasolutions/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de FarmIA">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a class="footer-social" href="https://www.linkedin.com/company/farmiasolutions/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de FarmIA">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.5 10v8"></path>
+              <path d="M6.5 7v.1"></path>
+              <path d="M11 18v-8"></path>
+              <path d="M11 13.5c0-2.1 1.2-3.5 3.2-3.5 1.9 0 3.3 1.3 3.3 4v4"></path>
+              <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="footer-social" href="https://wa.me/5491156592528" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de FarmIA">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5.4 18.7 6.5 15A7.3 7.3 0 1 1 9 17.5l-3.6 1.2Z"></path>
+              <path d="M9.3 8.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.5 1c.1.3.1.5-.1.7l-.3.4c-.1.1-.2.3-.1.5.4.8 1 1.5 1.8 1.9.2.1.4.1.5-.1l.5-.6c.2-.2.4-.3.7-.2l1.1.5c.3.1.4.3.4.6 0 .6-.4 1.3-.9 1.5-.7.3-2.1.1-3.8-1.1-1.8-1.3-2.9-3.1-3-4 0-.5.2-.9.4-1.1Z"></path>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          <a class="footer-social" href="mailto:administracion@farmiasolutions.com" aria-label="Enviar email a FarmIA">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+              <path d="m4 7 8 6 8-6"></path>
+            </svg>
+            <span>Email</span>
+          </a>
         </div>
       </div>
-      
-      <nav class="footer__nav" aria-label="Navegación del pie de página">
-        <a href="#problema">Problema</a>
-        <a href="#solucion">Solución</a>
-        <a href="#servicio">Servicio</a>
-        <a href="#para-quien">¿Para quién?</a>
-        <!-- <a href="#precios">Precios</a> -->
-        <a href="#demo">Demo</a>
-      </nav>
-      
-      <div class="footer__contact">
-        <a href="mailto:administracion@farmiasolutions.com" class="footer__email">administracion@farmiasolutions.com</a>
-      </div>
-      
-      <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 FarmIA Solutions. Todos los derechos reservados.</p>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 FarmIA Solutions. Todos los derechos reservados.</span>
+      <div class="footer-meta">
+        <span>Buenos Aires, Argentina · Agro LATAM</span>
+        <a href="mailto:administracion@farmiasolutions.com">administracion@farmiasolutions.com</a>
       </div>
     </div>
   </footer>

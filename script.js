@@ -1,230 +1,131 @@
 /**
- * FarmIA Landing Page - JavaScript
- * Mobile menu, smooth scroll, reveal animations
+ * FarmIA landing interactions.
  */
 
 (function() {
   'use strict';
 
-  // ========================================
-  // Mobile Navigation
-  // ========================================
-  const navToggle = document.querySelector('.navbar__toggle');
-  const navMenu = document.querySelector('.navbar__menu');
-  const navLinks = document.querySelectorAll('.navbar__link');
-
-  function toggleMenu() {
-    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', !isOpen);
-    navMenu.classList.toggle('is-open');
-    document.body.style.overflow = !isOpen ? 'hidden' : '';
-  }
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.site-nav');
+  const navLinks = document.querySelectorAll('.nav-link');
 
   function closeMenu() {
+    if (!navToggle || !navMenu) return;
     navToggle.setAttribute('aria-expanded', 'false');
     navMenu.classList.remove('is-open');
-    document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
   }
 
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', toggleMenu);
+    navToggle.addEventListener('click', () => {
+      const shouldOpen = navToggle.getAttribute('aria-expanded') !== 'true';
+      navToggle.setAttribute('aria-expanded', String(shouldOpen));
+      navMenu.classList.toggle('is-open', shouldOpen);
+      document.body.classList.toggle('menu-open', shouldOpen);
+    });
 
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       link.addEventListener('click', closeMenu);
     });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navMenu.classList.contains('is-open')) {
         closeMenu();
         navToggle.focus();
       }
     });
-
-    document.addEventListener('click', (e) => {
-      if (navMenu.classList.contains('is-open') && 
-          !navMenu.contains(e.target) && 
-          !navToggle.contains(e.target)) {
-        closeMenu();
-      }
-    });
   }
 
-  // ========================================
-  // Smooth Scroll for anchor links
-  // ========================================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function(event) {
       const href = this.getAttribute('href');
-      if (href === '#') return;
-      
+      if (!href || href === '#') return;
+
       const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-        history.pushState(null, null, href);
-      }
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', href);
     });
   });
 
-  // ========================================
-  // Scroll Reveal Animation
-  // ========================================
-  const revealElements = document.querySelectorAll('.reveal');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
-  if (!prefersReducedMotion && revealElements.length > 0) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    revealElements.forEach(el => {
-      revealObserver.observe(el);
-    });
-  } else {
-    revealElements.forEach(el => {
-      el.classList.add('is-visible');
-    });
-  }
-
-  // ========================================
-  // Navbar scroll effect
-  // ========================================
-  const navbar = document.querySelector('.navbar');
-
-  function handleNavbarScroll() {
-    if (window.pageYOffset > 50) {
-      navbar.classList.add('navbar--scrolled');
-    } else {
-      navbar.classList.remove('navbar--scrolled');
-    }
-  }
-
-  window.addEventListener('scroll', handleNavbarScroll, { passive: true });
-
-  // ========================================
-  // Active navigation link based on scroll
-  // ========================================
   const sections = document.querySelectorAll('section[id]');
-  const navLinksWithHash = document.querySelectorAll('.navbar__link[href^="#"]');
+  const hashNavLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  const siteHeader = document.querySelector('.site-header');
 
-  function updateActiveLink() {
-    const scrollPosition = window.scrollY + 150;
+  function updateActiveNavLink() {
+    const offset = (siteHeader ? siteHeader.offsetHeight : 0) + 96;
+    const scrollPosition = window.scrollY + offset;
+    let activeId = '';
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinksWithHash.forEach(link => {
-          link.classList.remove('navbar__link--active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('navbar__link--active');
-          }
-        });
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+      if (scrollPosition >= top && scrollPosition < bottom) {
+        activeId = section.id;
       }
     });
+
+    hashNavLinks.forEach((link) => {
+      link.classList.toggle('nav-link--active', link.getAttribute('href') === `#${activeId}`);
+    });
   }
 
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+  updateActiveNavLink();
 
-  // ========================================
-  // Form submission handler - Formspree
-  // ========================================
+  document.querySelectorAll('.reveal').forEach((element) => {
+    element.classList.add('is-visible');
+  });
+
   const demoForm = document.querySelector('.demo-form');
-  
+
   if (demoForm) {
-    demoForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const formData = new FormData(this);
+    demoForm.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
       const button = this.querySelector('button[type="submit"]');
-      const originalText = button.textContent;
-      
-      button.textContent = 'Enviando...';
-      button.disabled = true;
-      button.style.opacity = '0.7';
-      
+      const originalText = button ? button.textContent : '';
+      const formData = new FormData(this);
+
+      if (button) {
+        button.textContent = 'Enviando...';
+        button.disabled = true;
+        button.style.opacity = '0.72';
+      }
+
       try {
         const response = await fetch(this.action, {
           method: 'POST',
           body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
+          headers: { Accept: 'application/json' },
         });
-        
-        if (response.ok) {
-          button.textContent = '¡Solicitud enviada!';
-          button.style.background = '#10B981';
-          this.reset();
-          
-          setTimeout(() => {
+
+        if (!response.ok) {
+          throw new Error('Formspree request failed');
+        }
+
+        this.reset();
+        if (button) {
+          button.textContent = 'Solicitud enviada';
+          button.style.background = '#10b981';
+        }
+      } catch (error) {
+        if (button) {
+          button.textContent = 'Error - intentá de nuevo';
+          button.style.background = '#dc3545';
+        }
+      } finally {
+        if (button) {
+          window.setTimeout(() => {
             button.textContent = originalText;
             button.disabled = false;
             button.style.opacity = '';
             button.style.background = '';
-          }, 4000);
-        } else {
-          throw new Error('Error en el envío');
+          }, 3500);
         }
-      } catch (error) {
-        button.textContent = 'Error - Intentá de nuevo';
-        button.style.background = '#DC3545';
-        
-        setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
-          button.style.opacity = '';
-          button.style.background = '';
-        }, 3000);
       }
     });
   }
-
-  // ========================================
-  // Hero stats animation
-  // ========================================
-  const heroVisual = document.querySelector('.hero__visual');
-  if (heroVisual) {
-    const statCards = heroVisual.querySelectorAll('.hero__stat-card');
-    statCards.forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.15}s`;
-      card.classList.add('fade-in-up');
-    });
-  }
-
-  // Add CSS for hero animation
-  const style = document.createElement('style');
-  style.textContent = `
-    .fade-in-up {
-      animation: fadeInUp 0.5s ease forwards;
-      opacity: 0;
-    }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  `;
-  document.head.appendChild(style);
-
 })();
