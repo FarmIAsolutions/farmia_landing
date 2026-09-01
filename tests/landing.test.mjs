@@ -523,7 +523,8 @@ test('uses FarmIA design tokens and responsive accessibility safeguards', () => 
 })
 
 test('avoids a late web-font swap that shifts the mobile hero', () => {
-  assert.match(css, /@font-face[\s\S]*?font-display:\s*optional/i)
+  assert.match(css, /@font-face[\s\S]*?font-display:\s*block/i)
+  assert.match(html, /<link[^>]+rel="preload"[^>]+roboto-latin\.woff2/i)
 })
 
 test('implements menu, smooth anchors, and resilient async form states', () => {

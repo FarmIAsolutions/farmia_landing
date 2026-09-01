@@ -2,7 +2,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400 900;
-  font-display: optional;
+  font-display: block;
   src: url('assets/fonts/roboto-latin.woff2') format('woff2');
 }
 
