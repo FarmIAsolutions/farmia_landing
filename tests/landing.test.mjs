@@ -522,6 +522,10 @@ test('uses FarmIA design tokens and responsive accessibility safeguards', () => 
   assert.match(css, /:focus-visible/)
 })
 
+test('avoids a late web-font swap that shifts the mobile hero', () => {
+  assert.match(css, /@font-face[\s\S]*?font-display:\s*optional/i)
+})
+
 test('implements menu, smooth anchors, and resilient async form states', () => {
   assert.match(script, /aria-expanded/)
   assert.match(script, /scrollTo/)
