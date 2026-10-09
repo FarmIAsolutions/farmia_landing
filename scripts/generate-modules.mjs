@@ -110,7 +110,7 @@ function footer() {
       <nav class="site-footer__links" aria-label="Producto"><strong>Producto</strong><a href="/#como-ayuda">Cómo ayuda</a><a href="/#modulos">Módulos</a><a href="/#preguntas-frecuentes">Preguntas frecuentes</a><a href="${site.loginUrl}" target="_blank" rel="noopener noreferrer">Ir a la app</a></nav>
       <nav class="site-footer__links" aria-label="Contacto"><strong>Contacto</strong><a href="mailto:${site.email}">${site.email}</a><a href="${whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="${site.instagramUrl}" target="_blank" rel="noopener noreferrer">Instagram</a><a href="${site.linkedinUrl}" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav>
     </div>
-    <div class="container site-footer__bottom"><span>© <span data-current-year>2026</span> FarmIA Solutions.</span><div><span>D‑U‑N‑S: ${site.duns}</span><a href="${site.privacyUrl}" target="_blank" rel="noopener noreferrer">Privacidad</a></div></div>
+    <div class="container site-footer__bottom"><span>© <span data-current-year>2026</span> FarmIA Solutions. Nombre comercial de CACICU 26 S.A.</span><div><span>D‑U‑N‑S: ${site.duns}</span><a href="${site.privacyUrl}" target="_blank" rel="noopener noreferrer">Privacidad</a></div></div>
   </footer>`
 }
 

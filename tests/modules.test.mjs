@@ -189,7 +189,7 @@ test('generated module pages expose unique SEO metadata and complete commercial 
     assert.match(html, />Ir a la app</)
     assert.doesNotMatch(html, />Iniciar sesión</)
     assert.match(html, /D[‑-]U[‑-]N[‑-]S[^0-9]*352223533/)
-    assert.doesNotMatch(html, /CACICU 26/i)
+    assert.match(html, /FarmIA Solutions\. Nombre comercial de CACICU 26 S\.A\./)
     assert.match(html, /class="module-hero__media/)
     assert.equal((html.match(/class="module-gallery__item/g) || []).length, 2)
     assert.equal((html.match(/data-image-zoom/g) || []).length, 3, `${module.slug} should make all product captures zoomable`)
