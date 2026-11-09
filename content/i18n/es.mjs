@@ -1,6 +1,8 @@
 // Español rioplatense: idioma fuente del sitio. `ui` guarda el texto compartido por la
 // página principal y las páginas de módulos; `home`, el texto propio de la página principal.
 // Las cadenas no llevan HTML: el marcado vive en templates/home.html y en el generador.
+// El texto de los módulos en español vive en content/modules.mjs (el catálogo fuente);
+// en.mjs y pt.mjs lo traducen en sus claves `modules` y `groups`.
 export default {
   code: 'es',
   lang: 'es-AR',
@@ -9,6 +11,22 @@ export default {
   basePath: '',
   modulesSegment: 'modulos',
   homeAssetBase: '',
+
+  // Ids de las secciones de la página principal. Los de español son enlaces publicados: no cambian.
+  anchors: {
+    top: 'inicio',
+    content: 'contenido',
+    platform: 'plataforma',
+    scale: 'escala',
+    howItHelps: 'como-ayuda',
+    modules: 'modulos',
+    intelligence: 'inteligencia',
+    team: 'equipo',
+    clients: 'clientes',
+    start: 'como-empezamos',
+    demo: 'demo',
+    faq: 'preguntas-frecuentes',
+  },
 
   ui: {
     skipLink: 'Saltar al contenido',
@@ -23,6 +41,9 @@ export default {
       modules: 'Módulos',
       clients: 'Clientes',
       app: 'Ir a la app',
+    },
+    language: {
+      label: 'Idioma',
     },
     cta: {
       bookDemo: 'Agendar una demo',

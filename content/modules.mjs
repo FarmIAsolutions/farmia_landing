@@ -3,8 +3,11 @@ export const site = {
   origin: 'https://www.farmiasolutions.com',
   loginUrl: 'https://app.farmiasolutions.com',
   bookingUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2EZbkSfAAHaHis-QxOTnS3ca11N6290qr_glH9MJ1WR8RJ7M6kccGXflEpKw9u18SgO9oLuZKJ',
+  // Tienda argentina para el sitio en español; la neutra para inglés y portugués.
   appStoreUrl: 'https://apps.apple.com/ar/app/farmia/id6796829180',
+  appStoreGlobalUrl: 'https://apps.apple.com/app/farmia/id6796829180',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.farmia.mobile',
+  formspreeUrl: 'https://formspree.io/f/maqbggyl',
   privacyUrl: 'https://app.farmiasolutions.com/privacidad',
   whatsappNumber: '5491156592528',
   email: 'administracion@farmiasolutions.com',
@@ -13,23 +16,28 @@ export const site = {
   duns: '352223533',
 }
 
+// `id` es la clave de cada grupo en `groups` de content/i18n/<idioma>.mjs.
 export const moduleGroups = [
   {
+    id: 'understand',
     name: 'Entender',
     description: 'Convertí mapas, imágenes y clima en una lectura más clara de cada lote.',
     slugs: ['analisis-gis', 'imagenes-satelitales', 'agroclima'],
   },
   {
+    id: 'plan-act',
     name: 'Planificar y actuar',
     description: 'Llevá el diagnóstico a una receta y registrá lo que efectivamente sucede en campo.',
     slugs: ['prescripciones', 'monitoreo'],
   },
   {
+    id: 'soil',
     name: 'Suelo',
     description: 'Conservá la historia del suelo y usala para decidir con contexto entre campañas.',
     slugs: ['balance-suelo', 'muestreo-suelo'],
   },
   {
+    id: 'manage',
     name: 'Gestionar',
     description: 'Planificá y controlá la operación productiva, administrativa y económica.',
     slugs: ['gestion'],

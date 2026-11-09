@@ -97,6 +97,11 @@ body.lightbox-open {
   backdrop-filter: blur(8px);
 }
 
+/* «Ampliar» sirve también en portugués; en inglés cambia. */
+:lang(en) .image-zoom-trigger::after {
+  content: '⛶  Enlarge';
+}
+
 .image-zoom-trigger:hover::after,
 .image-zoom-trigger:focus-visible::after {
   background: rgba(8, 51, 28, 0.92);
@@ -474,6 +479,54 @@ a {
 
 .login-link {
   padding: 8px 2px;
+}
+
+/* Selector de idioma: discreto, para no competir con los botones del encabezado. */
+.language-switcher {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.language-switcher a {
+  padding: 6px 3px;
+  color: var(--farmia-text-soft);
+  border-radius: 6px;
+  transition: color 160ms ease;
+}
+
+.language-switcher a:hover {
+  color: var(--farmia-primary-hover);
+}
+
+.language-switcher a[aria-current="true"] {
+  color: var(--farmia-text);
+  font-weight: 800;
+}
+
+.language-switcher span {
+  color: var(--farmia-border-strong);
+}
+
+.language-switcher--footer a {
+  color: #789080;
+}
+
+.language-switcher--footer a:hover {
+  color: #a7e8bf;
+}
+
+.language-switcher--footer a[aria-current="true"] {
+  color: #dfece3;
+}
+
+.language-switcher--footer span {
+  color: rgba(255, 255, 255, 0.2);
 }
 
 .nav-toggle {
@@ -2315,6 +2368,20 @@ a {
 
   .site-nav__actions {
     margin-top: 12px;
+  }
+
+  .site-nav__actions .language-switcher {
+    gap: 8px;
+    padding: 4px 0;
+    font-size: 0.86rem;
+  }
+
+  .site-nav__actions .language-switcher a {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
   .site-nav__actions .button {

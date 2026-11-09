@@ -3,6 +3,37 @@
 
   document.documentElement.classList.add('js-ready')
 
+  // Mensajes de la interfaz por idioma (las dos primeras letras de <html lang>); español por defecto.
+  // Los textos de "Abrir menú" coinciden con ui.nav.openMenu de content/i18n/<idioma>.mjs.
+  const messages = {
+    es: {
+      openMenu: 'Abrir menú',
+      closeMenu: 'Cerrar menú',
+      invalid: 'Completá tu nombre y un email válido para continuar.',
+      sending: 'Enviando solicitud…',
+      success: 'Recibimos tu solicitud. Te vamos a contactar para coordinar la demo.',
+      failure: 'No pudimos enviar la solicitud. Podés intentar de nuevo o escribirnos por WhatsApp.',
+    },
+    en: {
+      openMenu: 'Open menu',
+      closeMenu: 'Close menu',
+      invalid: 'Enter your name and a valid email to continue.',
+      sending: 'Sending request…',
+      success: 'We received your request. We’ll be in touch to schedule the demo.',
+      failure: 'We couldn’t send your request. Try again or message us on WhatsApp.',
+    },
+    pt: {
+      openMenu: 'Abrir menu',
+      closeMenu: 'Fechar menu',
+      invalid: 'Preencha seu nome e um e-mail válido para continuar.',
+      sending: 'Enviando solicitação…',
+      success: 'Recebemos a sua solicitação. Vamos entrar em contato para combinar a demo.',
+      failure: 'Não foi possível enviar a solicitação. Tente novamente ou fale com a gente pelo WhatsApp.',
+    },
+  }
+  const language = String(document.documentElement.lang || '').slice(0, 2).toLowerCase()
+  const text = messages[language] || messages.es
+
   const header = document.querySelector('.site-header')
   const navToggle = document.querySelector('.nav-toggle')
   const nav = document.querySelector('.site-nav')
@@ -16,7 +47,7 @@
     navToggle.classList.toggle('is-open', open)
     nav.classList.toggle('is-open', open)
     navToggle.setAttribute('aria-expanded', String(open))
-    navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú')
+    navToggle.setAttribute('aria-label', open ? text.closeMenu : text.openMenu)
     document.body.classList.toggle('menu-open', open)
   }
 
@@ -166,7 +197,7 @@
       if (!form.checkValidity()) {
         form.reportValidity()
         if (status) {
-          status.textContent = 'Completá tu nombre y un email válido para continuar.'
+          status.textContent = text.invalid
           status.classList.remove('is-success')
           status.classList.add('is-error')
         }
@@ -178,7 +209,7 @@
 
       if (submitButton) {
         submitButton.disabled = true
-        submitButton.textContent = 'Enviando solicitud…'
+        submitButton.textContent = text.sending
       }
 
       if (status) {
@@ -197,12 +228,12 @@
 
         form.reset()
         if (status) {
-          status.textContent = 'Recibimos tu solicitud. Te vamos a contactar para coordinar la demo.'
+          status.textContent = text.success
           status.classList.add('is-success')
         }
       } catch (error) {
         if (status) {
-          status.textContent = 'No pudimos enviar la solicitud. Podés intentar de nuevo o escribirnos por WhatsApp.'
+          status.textContent = text.failure
           status.classList.add('is-error')
         }
       } finally {
