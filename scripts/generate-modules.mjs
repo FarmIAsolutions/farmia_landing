@@ -17,7 +17,7 @@ const homeTemplatePath = join(sourceRoot, 'templates', 'home.html')
 // el resto vive bajo su basePath (/en/, /pt/).
 export const locales = [es, en, pt]
 const sourceLocale = es
-const assetVersions = { styles: '20261109-2', script: '20261109-2' }
+const assetVersions = { styles: '20261109-2', script: '20261109-3' }
 
 function escapeHtml(value) {
   return String(value)

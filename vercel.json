@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "pt" } }],
+      "missing": [{ "type": "cookie", "key": "farmia_lang" }],
+      "destination": "/pt/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "en" } }],
+      "missing": [{ "type": "cookie", "key": "farmia_lang" }],
+      "destination": "/en/",
+      "permanent": false
+    }
+  ]
+}

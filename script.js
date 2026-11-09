@@ -66,6 +66,17 @@
     })
   }
 
+  // Recuerda el idioma elegido a mano. La redirección por idioma del navegador (vercel.json)
+  // solo actúa en la página principal y mientras esta cookie no exista.
+  document.addEventListener('click', (event) => {
+    const target = event.target
+    if (!target || typeof target.closest !== 'function') return
+    const link = target.closest('.language-menu a[hreflang], .language-switcher a[hreflang]')
+    if (!link) return
+    const code = String(link.getAttribute('hreflang') || '').slice(0, 2).toLowerCase()
+    if (/^[a-z]{2}$/.test(code)) document.cookie = `farmia_lang=${code}; path=/; max-age=31536000; SameSite=Lax`
+  })
+
   function setMenu(open) {
     if (open) closeLanguageMenu(false)
     if (!navToggle || !nav) return
