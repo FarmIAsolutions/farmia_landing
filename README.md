@@ -6,20 +6,30 @@ Es un sitio estático (HTML, CSS y JavaScript, sin framework ni paso de build). 
 
 ## Estructura
 
-- `index.html`, `styles.css`, `script.js`: la página principal.
-- `content/modules.mjs`: el contenido de las páginas de módulos (un objeto por módulo).
-- `modulos/<slug>/index.html`: páginas de módulos **generadas** desde `content/modules.mjs`. No se editan a mano.
-- `scripts/generate-modules.mjs`: genera `modulos/` a partir del contenido; con `--check` solo verifica que estén al día.
+- `index.html`: la página principal, **generada** desde `templates/home.html` y `content/i18n/es.mjs`. No se edita a mano.
+- `templates/home.html`: el marcado de la página principal, con marcadores `{{clave}}` en lugar de texto.
+- `content/i18n/es.mjs`: todos los textos del sitio en español: `ui` (encabezado, pie, botones y rótulos compartidos por todas las páginas) y `home` (los de la página principal).
+- `content/modules.mjs`: los datos del sitio (`site`: enlaces, email, D-U-N-S) y el contenido de las páginas de módulos (un objeto por módulo).
+- `modulos/<slug>/index.html` y `sitemap.xml`: también **generados**. No se editan a mano.
+- `scripts/generate-modules.mjs`: genera `index.html`, `modulos/` y `sitemap.xml`; con `--check` solo verifica que estén al día.
+- `styles.css`, `module-pages.css`, `script.js`: estilos y comportamiento.
 - `assets/`: imágenes y fuentes. La carpeta `assets/product/_source/` (originales pesados) no se versiona.
 - `tests/`: pruebas con el runner de Node (`node --test`).
 
+Los archivos generados se versionan: Vercel publica lo que está en el repo, sin paso de build.
+
 ## Trabajar en local
 
+Para cambiar un texto, editá `content/i18n/es.mjs` (o `content/modules.mjs` si es de un módulo); para cambiar el marcado de la página principal, `templates/home.html`. Después regenerá:
+
 ```bash
-node scripts/generate-modules.mjs   # regenera modulos/ si tocaste content/modules.mjs
+node scripts/generate-modules.mjs   # regenera index.html, modulos/ y sitemap.xml
+node scripts/generate-modules.mjs --check   # verifica que lo versionado esté al día
 node --test tests/                   # pruebas
 npx serve .                          # o python -m http.server; abrir http://localhost:3000
 ```
+
+Un marcador que no existe en `content/i18n/es.mjs` frena la generación con un error que nombra la clave. El repo fuerza finales de línea LF (`.gitattributes`), así que `--check` compara bien también en Windows.
 
 ## Reglas
 
