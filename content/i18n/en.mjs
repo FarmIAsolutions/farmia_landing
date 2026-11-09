@@ -8,6 +8,7 @@ export default {
   lang: 'en',
   ogLocale: 'en_US',
   hreflang: 'en',
+  nativeName: 'English',
   basePath: '/en',
   modulesSegment: 'modules',
   homeAssetBase: '/',

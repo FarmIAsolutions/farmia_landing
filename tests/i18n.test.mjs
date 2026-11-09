@@ -180,7 +180,10 @@ const isHub = (path) => /^(?:(?:en|pt)\/)?(?:modulos|modules)\/index\.html$/.tes
 const contentPages = () => [...generated].filter(([path]) => path.endsWith('index.html') && !isHub(path))
 
 function withoutSwitchersAndAlternates(html) {
-  return html.replace(/<div class="language-switcher[^"]*"[^>]*>[\s\S]*?<\/div>/g, '').replace(/<link rel="alternate"[^>]*>/g, '')
+  return html
+    .replace(/<details class="language-menu">[\s\S]*?<\/details>/g, '')
+    .replace(/<div class="language-switcher[^"]*"[^>]*>[\s\S]*?<\/div>/g, '')
+    .replace(/<link rel="alternate"[^>]*>/g, '')
 }
 
 test('English and Portuguese cover exactly the Spanish keys for ui, home, anchors, groups and modules', () => {
@@ -238,16 +241,40 @@ test('every content page carries its language, a self canonical, the four hrefla
     assert.match(html, new RegExp(`<meta property="og:locale" content="${locale.ogLocale}">`))
     assert.equal((html.match(/og:locale:alternate/g) || []).length, 2, `${path}: og:locale:alternate`)
 
-    const switchers = html.match(/<div class="language-switcher[^"]*" role="group" aria-label="[^"]+">[\s\S]*?<\/div>/g) || []
-    assert.equal(switchers.length, 2, `${path}: switcher in header and footer`)
-    for (const switcher of switchers) {
-      assert.ok(switcher.includes(`aria-label="${locale.ui.language.label}"`), `${path}: localized group label`)
-      const links = [...switcher.matchAll(/<a href="([^"]+)" lang="([^"]+)" hreflang="([^"]+)"( aria-current="true")?>([A-Z]{2})<\/a>/g)]
-      assert.deepEqual(links.map((link) => link[5]), ['ES', 'EN', 'PT'], `${path}: switcher labels`)
-      assert.deepEqual(links.filter((link) => link[4]).map((link) => link[3]), [locale.hreflang], `${path}: aria-current on the current language`)
-      for (const [, href] of links) assert.ok(generated.has(urlToFile(href)), `${path}: switcher target ${href} should be generated`)
-      assert.deepEqual(links.map((link) => `${origin}${link[1]}`), alternates.slice(0, 3).map(([, href]) => href), `${path}: switcher and hreflang agree`)
+    const menus = html.match(/<details class="language-menu">[\s\S]*?<\/details>/g) || []
+    assert.equal(menus.length, 1, `${path}: one language menu in the header`)
+    const footers = html.match(/<div class="language-switcher language-switcher--footer" role="group" aria-label="[^"]+">[\s\S]*?<\/div>/g) || []
+    assert.equal(footers.length, 1, `${path}: one language switcher in the footer`)
+    assert.ok(footers[0].includes(`aria-label="${locale.ui.language.label}"`), `${path}: localized footer group label`)
+    assert.equal(menus[0].match(/<summary class="language-menu__button" aria-label="([^"]+)">/)?.[1], `${locale.ui.language.label}: ${locale.nativeName}`, `${path}: localized menu button name`)
+    assert.match(menus[0], new RegExp(`<span class="language-menu__code">${locale.code.toUpperCase()}</span>`), `${path}: menu button shows the current code`)
+
+    const variants = [
+      ['header', menus[0], /<a class="language-menu__option" href="([^"]+)" lang="([^"]+)" hreflang="([^"]+)"( aria-current="true")?><span>([^<]+)<\/span>(<svg class="language-menu__check"[^>]*>[\s\S]*?<\/svg>)?<\/a>/g],
+      ['footer', footers[0], /<a href="([^"]+)" lang="([^"]+)" hreflang="([^"]+)"( aria-current="true")?>([^<]+)<\/a>/g],
+    ]
+    for (const [variant, markup, pattern] of variants) {
+      const links = [...markup.matchAll(pattern)]
+      assert.deepEqual(links.map((link) => link[5]), ['Español', 'English', 'Português'], `${path}: ${variant} language names`)
+      assert.deepEqual(links.map((link) => [link[2], link[3]]), [es, en, pt].map((target) => [target.lang, target.hreflang]), `${path}: ${variant} lang and hreflang`)
+      assert.deepEqual(links.filter((link) => link[4]).map((link) => link[3]), [locale.hreflang], `${path}: ${variant} aria-current on the current language`)
+      if (variant === 'header') assert.deepEqual(links.filter((link) => link[6]).map((link) => link[3]), [locale.hreflang], `${path}: check icon only on the current language`)
+      for (const [, href] of links) assert.ok(generated.has(urlToFile(href)), `${path}: ${variant} target ${href} should be generated`)
+      assert.deepEqual(links.map((link) => `${origin}${link[1]}`), alternates.slice(0, 3).map(([, href]) => href), `${path}: ${variant} switcher and hreflang agree`)
     }
+  }
+})
+
+test('the header language menu sits outside the collapsible navigation, after it', () => {
+  for (const [path, html] of contentPages()) {
+    const header = html.match(/<header class="site-header"[\s\S]*?<\/header>/)?.[0] ?? ''
+    const nav = header.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0] ?? ''
+    assert.ok(nav, `${path}: header has the site navigation`)
+    assert.doesNotMatch(nav, /language-menu|language-switcher/, `${path}: no language selector inside .site-nav`)
+    const navEnd = header.indexOf('</nav>')
+    const menuStart = header.indexOf('<details class="language-menu">')
+    assert.ok(menuStart > navEnd, `${path}: the menu follows the navigation inside .site-header__inner`)
+    assert.match(header.slice(navEnd), /^<\/nav>\s*<details class="language-menu">[\s\S]*?<\/details>\s*<\/div>\s*<\/header>$/, `${path}: the menu is the last child of .site-header__inner`)
   }
 })
 
