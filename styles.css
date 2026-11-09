@@ -481,36 +481,144 @@ a {
   padding: 8px 2px;
 }
 
-/* Selector de idioma: discreto, para no competir con los botones del encabezado. */
+/* Selector de idioma del encabezado: botón contorneado, del tamaño de .button--small, que no compite con «Agendar una demo».
+   Funciona sin JavaScript (<details>); fuera de .site-nav para que en móvil quede a la vista junto a la hamburguesa. */
+.language-menu {
+  position: relative;
+  flex: none;
+  margin-left: 16px;
+}
+
+.site-nav {
+  margin-left: auto;
+}
+
+.language-menu__button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 11px 9px 12px;
+  color: var(--farmia-text);
+  background: var(--farmia-surface);
+  border: 1px solid var(--farmia-border);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.25;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.language-menu__button::-webkit-details-marker {
+  display: none;
+}
+
+.language-menu__button:hover,
+.language-menu[open] .language-menu__button {
+  color: var(--farmia-primary-dark);
+  background: var(--farmia-green-soft);
+  border-color: var(--farmia-border-strong);
+}
+
+.language-menu__button:focus-visible,
+.language-menu__option:focus-visible {
+  outline: 3px solid var(--farmia-focus);
+  outline-offset: 2px;
+}
+
+.language-menu svg {
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.language-menu__globe {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.7;
+}
+
+.language-menu__code {
+  letter-spacing: 0.04em;
+}
+
+.language-menu__chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--farmia-text-soft);
+  stroke-width: 2.2;
+  transition: transform 180ms ease;
+}
+
+.language-menu[open] .language-menu__chevron {
+  transform: rotate(180deg);
+}
+
+.language-menu__panel {
+  position: absolute;
+  z-index: 110;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  min-width: 188px;
+  gap: 2px;
+  padding: 6px;
+  margin: 0;
+  list-style: none;
+  background: var(--farmia-surface);
+  border: 1px solid var(--farmia-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.language-menu__option {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 12px;
+  color: var(--farmia-text);
+  border-radius: var(--radius-sm);
+  font-size: 0.93rem;
+  font-weight: 600;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.language-menu__option:hover {
+  color: var(--farmia-primary-hover);
+  background: var(--farmia-green-soft);
+}
+
+.language-menu__option[aria-current="true"] {
+  color: var(--farmia-primary-dark);
+  font-weight: 700;
+}
+
+.language-menu__check {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.2;
+}
+
+/* Selector de idioma del pie: enlaces de texto discretos. */
 .language-switcher {
   display: inline-flex;
   flex: none;
   align-items: center;
-  gap: 4px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  gap: 6px;
   line-height: 1;
 }
 
 .language-switcher a {
-  padding: 6px 3px;
-  color: var(--farmia-text-soft);
+  padding: 6px 0;
   border-radius: 6px;
   transition: color 160ms ease;
-}
-
-.language-switcher a:hover {
-  color: var(--farmia-primary-hover);
-}
-
-.language-switcher a[aria-current="true"] {
-  color: var(--farmia-text);
-  font-weight: 800;
-}
-
-.language-switcher span {
-  color: var(--farmia-border-strong);
 }
 
 .language-switcher--footer a {
@@ -2296,6 +2404,23 @@ a {
 }
 
 @media (max-width: 1100px) {
+  /* Espacio para el selector de idioma en el encabezado de escritorio más angosto (961 px en portugués). */
+  .site-nav {
+    gap: 24px;
+  }
+
+  .site-nav__list {
+    gap: 20px;
+  }
+
+  .site-nav__actions {
+    gap: 12px;
+  }
+
+  .language-menu {
+    margin-left: 12px;
+  }
+
   .hero__grid {
     grid-template-columns: minmax(0, 0.9fr) minmax(480px, 1.1fr);
     gap: 38px;
@@ -2370,18 +2495,19 @@ a {
     margin-top: 12px;
   }
 
-  .site-nav__actions .language-switcher {
-    gap: 8px;
-    padding: 4px 0;
-    font-size: 0.86rem;
+  /* En móvil el selector queda en la barra, a la izquierda de la hamburguesa. */
+  .language-menu {
+    order: 1;
+    margin-left: auto;
   }
 
-  .site-nav__actions .language-switcher a {
-    display: inline-flex;
-    min-width: 44px;
+  .nav-toggle {
+    order: 2;
+    margin-left: 8px;
+  }
+
+  .language-menu__button {
     min-height: 44px;
-    align-items: center;
-    justify-content: center;
   }
 
   .site-nav__actions .button {

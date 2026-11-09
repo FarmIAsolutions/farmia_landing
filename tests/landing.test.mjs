@@ -649,3 +649,94 @@ test('releases the mobile scroll lock when navigation returns to desktop', () =>
   assert.equal(nav.classList.contains('is-open'), false)
   assert.equal(navToggle.getAttribute('aria-expanded'), 'false')
 })
+
+test('closes the language menu on Escape, outside click, focus leaving it and when the mobile menu opens', () => {
+  class FakeClassList {
+    constructor() { this.values = new Set() }
+    add(...names) { names.forEach((name) => this.values.add(name)) }
+    remove(...names) { names.forEach((name) => this.values.delete(name)) }
+    toggle(name, force) {
+      const shouldAdd = force === undefined ? !this.values.has(name) : force
+      if (shouldAdd) this.add(name)
+      else this.remove(name)
+      return shouldAdd
+    }
+    contains(name) { return this.values.has(name) }
+  }
+
+  class FakeElement {
+    constructor(parent = null) {
+      this.parent = parent
+      this.classList = new FakeClassList()
+      this.attributes = new Map()
+      this.listeners = new Map()
+      this.offsetHeight = 76
+    }
+    addEventListener(type, listener) { this.listeners.set(type, listener) }
+    setAttribute(name, value) { this.attributes.set(name, value) }
+    getAttribute(name) { return this.attributes.get(name) ?? null }
+    contains(node) {
+      for (let current = node; current; current = current.parent) if (current === this) return true
+      return false
+    }
+    focus() { focused = this }
+  }
+
+  let focused = null
+  const languageMenu = new FakeElement()
+  languageMenu.open = false
+  const summary = new FakeElement(languageMenu)
+  const option = new FakeElement(languageMenu)
+  languageMenu.querySelector = (selector) => selector === 'summary' ? summary : null
+  const navToggle = new FakeElement()
+  const nav = new FakeElement()
+  const outside = new FakeElement()
+  const documentListeners = { keydown: [], click: [] }
+  const document = {
+    body: new FakeElement(),
+    documentElement: new FakeElement(),
+    addEventListener(type, listener) { documentListeners[type]?.push(listener) },
+    querySelector(selector) {
+      return { '.language-menu': languageMenu, '.nav-toggle': navToggle, '.site-nav': nav }[selector] ?? null
+    },
+    querySelectorAll() { return [] },
+  }
+  const window = {
+    addEventListener() {},
+    history: { pushState() {} },
+    location: { hash: '', search: '' },
+    matchMedia() { return { matches: false, addEventListener() {} } },
+    scrollTo() {},
+    scrollY: 0,
+  }
+  const dispatch = (type, event) => documentListeners[type].forEach((listener) => listener({ preventDefault() {}, ...event }))
+
+  runInNewContext(script, { document, window, URLSearchParams })
+
+  languageMenu.open = true
+  dispatch('click', { target: { closest: () => null, parent: summary } })
+  assert.equal(languageMenu.open, true, 'a click inside the menu keeps it open')
+  dispatch('keydown', { key: 'Tab' })
+  assert.equal(languageMenu.open, true, 'other keys keep it open')
+
+  dispatch('keydown', { key: 'Escape' })
+  assert.equal(languageMenu.open, false, 'Escape closes the menu')
+  assert.equal(focused, summary, 'Escape returns focus to the button')
+
+  focused = null
+  languageMenu.open = true
+  dispatch('click', { target: Object.assign(outside, { closest: () => null }) })
+  assert.equal(languageMenu.open, false, 'an outside click closes the menu')
+  assert.equal(focused, null, 'an outside click does not steal focus')
+
+  languageMenu.open = true
+  languageMenu.listeners.get('focusout')({ relatedTarget: option })
+  assert.equal(languageMenu.open, true, 'moving focus between options keeps it open')
+  languageMenu.listeners.get('focusout')({ relatedTarget: outside })
+  assert.equal(languageMenu.open, false, 'tabbing out of the menu closes it')
+
+  languageMenu.open = true
+  navToggle.listeners.get('click')()
+  assert.equal(nav.classList.contains('is-open'), true, 'the mobile menu opens')
+  assert.equal(languageMenu.open, false, 'opening the mobile menu closes the language menu')
+})

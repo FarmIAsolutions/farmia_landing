@@ -8,6 +8,7 @@ export default {
   lang: 'pt-BR',
   ogLocale: 'pt_BR',
   hreflang: 'pt-BR',
+  nativeName: 'Português',
   basePath: '/pt',
   modulesSegment: 'modulos',
   homeAssetBase: '/',

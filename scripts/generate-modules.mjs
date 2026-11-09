@@ -17,7 +17,7 @@ const homeTemplatePath = join(sourceRoot, 'templates', 'home.html')
 // el resto vive bajo su basePath (/en/, /pt/).
 export const locales = [es, en, pt]
 const sourceLocale = es
-const assetVersions = { styles: '20261109-1', script: '20261109-1' }
+const assetVersions = { styles: '20261109-2', script: '20261109-2' }
 
 function escapeHtml(value) {
   return String(value)
@@ -104,11 +104,22 @@ function ogLocaleAlternates(locale) {
   return locales.filter((target) => target.code !== locale.code).map((target) => `<meta property="og:locale:alternate" content="${target.ogLocale}">`)
 }
 
+const languageIcons = {
+  globe: '<svg class="language-menu__globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"></path></svg>',
+  chevron: '<svg class="language-menu__chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"></path></svg>',
+  check: '<svg class="language-menu__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>',
+}
+
+// Encabezado: un <details> que funciona sin JavaScript (script.js solo suma el cierre por Escape,
+// clic afuera o al abrir el menú móvil). Pie: enlaces de texto. Mismo destino en los dos.
 function languageSwitcher(locale, page, variant) {
-  const links = locales.map((target) => {
-    const current = target.code === locale.code ? ' aria-current="true"' : ''
-    return `<a href="${pageUrl(target, page)}" lang="${target.lang}" hreflang="${target.hreflang}"${current}>${target.code.toUpperCase()}</a>`
-  }).join('<span aria-hidden="true">·</span>')
+  const options = locales.map((target) => ({ target, href: pageUrl(target, page), current: target.code === locale.code }))
+  if (variant === 'header') {
+    const label = `${locale.ui.language.label}: ${locale.nativeName}`
+    const items = options.map(({ target, href, current }) => `<li><a class="language-menu__option" href="${href}" lang="${target.lang}" hreflang="${target.hreflang}"${current ? ' aria-current="true"' : ''}><span>${escapeHtml(target.nativeName)}</span>${current ? languageIcons.check : ''}</a></li>`).join('')
+    return `<details class="language-menu"><summary class="language-menu__button" aria-label="${escapeHtml(label)}">${languageIcons.globe}<span class="language-menu__code">${locale.code.toUpperCase()}</span>${languageIcons.chevron}</summary><ul class="language-menu__panel" aria-label="${escapeHtml(locale.ui.language.label)}">${items}</ul></details>`
+  }
+  const links = options.map(({ target, href, current }) => `<a href="${href}" lang="${target.lang}" hreflang="${target.hreflang}"${current ? ' aria-current="true"' : ''}>${escapeHtml(target.nativeName)}</a>`).join('<span aria-hidden="true">·</span>')
   return `<div class="language-switcher language-switcher--${variant}" role="group" aria-label="${escapeHtml(locale.ui.language.label)}">${links}</div>`
 }
 
@@ -208,6 +219,7 @@ function validateLocales(errors) {
     const label = locale.code
     if (codes.has(locale.code)) errors.push(`${label}: código de idioma duplicado`)
     codes.add(locale.code)
+    if (typeof locale.nativeName !== 'string' || !locale.nativeName.trim()) errors.push(`${label}: falta nativeName (el nombre del idioma para el selector)`)
     // basePath y homeAssetBase quedan vacíos en español a propósito: se publica en la raíz.
     for (const key of ['ui', 'home', 'anchors', 'groups', 'modules']) for (const path of emptyStrings(locale[key], `${label}.${key}`)) errors.push(`${path}: texto vacío`)
     if (Object.keys(locale.anchors || {}).sort().join() !== anchorKeys) errors.push(`${label}: anchors debe tener las mismas claves que es`)
@@ -280,11 +292,11 @@ function header(locale, page) {
           <li><a class="nav-link" href="${home}#${anchors.clients}">${escapeHtml(ui.nav.clients)}</a></li>
         </ul>
         <div class="site-nav__actions">
-          ${languageSwitcher(locale, page, 'header')}
           <a class="button button--app button--small" href="${site.loginUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(ui.nav.app)}</a>
           <a class="button button--primary button--small" href="${site.bookingUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(ui.cta.bookDemo)}</a>
         </div>
       </nav>
+      ${languageSwitcher(locale, page, 'header')}
     </div>
   </header>`
 }

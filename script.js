@@ -40,8 +40,34 @@
   const navLinks = document.querySelectorAll('.nav-link')
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const desktopNavigation = window.matchMedia('(min-width: 961px)')
+  const languageMenu = document.querySelector('.language-menu')
+
+  // El selector de idioma es un <details>: abre y cierra solo. Esto suma el cierre por Escape
+  // (devolviendo el foco al botón), por clic o foco afuera y al abrir el menú móvil.
+  function closeLanguageMenu(returnFocus) {
+    if (!languageMenu || !languageMenu.open) return
+    languageMenu.open = false
+    if (!returnFocus) return
+    const summary = languageMenu.querySelector('summary')
+    if (summary) summary.focus()
+  }
+
+  if (languageMenu) {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && languageMenu.open) closeLanguageMenu(true)
+    })
+
+    document.addEventListener('click', (event) => {
+      if (languageMenu.open && !languageMenu.contains(event.target)) closeLanguageMenu(false)
+    })
+
+    languageMenu.addEventListener('focusout', (event) => {
+      if (event.relatedTarget && !languageMenu.contains(event.relatedTarget)) closeLanguageMenu(false)
+    })
+  }
 
   function setMenu(open) {
+    if (open) closeLanguageMenu(false)
     if (!navToggle || !nav) return
 
     navToggle.classList.toggle('is-open', open)

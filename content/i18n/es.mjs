@@ -8,6 +8,8 @@ export default {
   lang: 'es-AR',
   ogLocale: 'es_AR',
   hreflang: 'es',
+  // El nombre del idioma en sí mismo: el selector lo muestra igual en las páginas de los tres idiomas.
+  nativeName: 'Español',
   basePath: '',
   modulesSegment: 'modulos',
   homeAssetBase: '',

@@ -14,7 +14,7 @@ El sitio se publica en tres idiomas con el mismo diseño. **El español es el id
 | Inglés (`en`, EE. UU.) | `/en/` | `/en/modules/<slug-en>/` |
 | Portugués (`pt-BR`) | `/pt/` | `/pt/modulos/<slug-pt>/` |
 
-- Cada página enlaza su equivalente en los otros idiomas con el selector `ES · EN · PT` (encabezado y pie) y con `<link rel="alternate" hreflang>`; `x-default` apunta al español.
+- Cada página enlaza su equivalente en los otros idiomas con el selector de idioma (en el encabezado, un botón con el globo y el código que despliega `Español`, `English`, `Português`, visible también en móvil junto a la hamburguesa; en el pie, los mismos nombres como enlaces) y con `<link rel="alternate" hreflang>`; `x-default` apunta al español. El nombre de cada idioma es `nativeName` en `content/i18n/<código>.mjs`.
 - No hay redirección automática por idioma del navegador.
 - El slug en español de cada módulo (`analisis-gis`, `monitoreo`, …) es su id interno: catálogo, conexiones y el campo `module_interest` del formulario. Los slugs en inglés y portugués viven en `content/i18n/en.mjs` y `pt.mjs`.
 - Las URLs y los anclajes en español (`#modulos`, `#preguntas-frecuentes`, …) son enlaces publicados: no cambian.
