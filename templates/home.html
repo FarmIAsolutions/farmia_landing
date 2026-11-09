@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{home.meta.description}}">
+  <meta name="theme-color" content="#1a9850">
+
+  <meta property="og:title" content="{{home.meta.title}}">
+  <meta property="og:description" content="{{home.meta.ogDescription}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{homeAbsoluteUrl}}">
+  <meta property="og:image" content="{{site.origin}}/assets/product/home-campo-ndvi-focus.webp">
+  <meta property="og:locale" content="{{ogLocale}}">
+
+  <link rel="icon" type="image/png" href="{{assetBase}}assets/favicon.png?v=20260901-1">
+  <link rel="preload" href="{{assetBase}}assets/fonts/roboto-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{assetBase}}assets/logo-farmia-wordmark-official.png" as="image" type="image/png">
+  <link rel="preload" href="{{assetBase}}assets/product/home-campo-ndvi-focus.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="{{assetBase}}styles.css?v=20260901-3">
+
+  <title>{{home.meta.title}}</title>
+
+  <script type="application/ld+json">
+{{{jsonLd}}}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">{{ui.skipLink}}</a>
+
+  <header class="site-header" id="inicio">
+    <div class="container site-header__inner">
+      <a class="brand" href="#plataforma" aria-label="{{ui.brand.homeLabel}}">
+        <img class="brand__icon" src="{{assetBase}}assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="" width="40" height="40">
+        <img class="brand__wordmark" src="{{assetBase}}assets/logo-farmia-wordmark-official.png" alt="{{site.name}}" width="218" height="52" fetchpriority="high">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="{{ui.nav.openMenu}}" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="{{ui.nav.label}}">
+        <ul class="site-nav__list">
+          <li><a class="nav-link" href="#plataforma">{{ui.nav.platform}}</a></li>
+          <li><a class="nav-link" href="#como-ayuda">{{ui.nav.howItHelps}}</a></li>
+          <li><a class="nav-link" href="#modulos">{{ui.nav.modules}}</a></li>
+          <li><a class="nav-link" href="#clientes">{{ui.nav.clients}}</a></li>
+        </ul>
+        <div class="site-nav__actions">
+          <a class="button button--app button--small" href="{{site.loginUrl}}" target="_blank" rel="noopener noreferrer">{{ui.nav.app}}</a>
+          <a class="button button--primary button--small" href="{{site.bookingUrl}}" target="_blank" rel="noopener noreferrer">{{ui.cta.bookDemo}}</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="plataforma">
+      <div class="container hero__grid">
+        <div class="hero__copy reveal">
+          <span class="eyebrow">{{home.hero.eyebrow}}</span>
+          <h1>{{home.hero.titleLead}} <span>{{home.hero.titleHighlight}}</span></h1>
+          <p class="hero__lead">{{home.hero.lead}}</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="{{site.bookingUrl}}" target="_blank" rel="noopener noreferrer">{{ui.cta.bookDemo}}</a>
+            <a class="button button--whatsapp" href="{{whatsappUrl}}" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.4 18.7 6.5 15A7.3 7.3 0 1 1 9 17.5l-3.6 1.2Z"></path><path d="M9.3 8.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.5 1c.1.3.1.5-.1.7l-.3.4c-.1.1-.2.3-.1.5.4.8 1 1.5 1.8 1.9.2.1.4.1.5-.1l.5-.6c.2-.2.4-.3.7-.2l1.1.5c.3.1.4.3.4.6 0 .6-.4 1.3-.9 1.5-.7.3-2.1.1-3.8-1.1-1.8-1.3-2.9-3.1-3-4 0-.5.2-.9.4-1.1Z"></path></svg>
+              {{ui.cta.whatsapp}}
+            </a>
+          </div>
+          <p class="hero__support"><span aria-hidden="true">✓</span> {{home.hero.support}}</p>
+        </div>
+
+        <div class="hero-product reveal" aria-label="{{home.hero.productLabel}}">
+          <div class="hero-product__glow" aria-hidden="true"></div>
+          <div class="product-window product-window--hero">
+            <div class="product-window__bar" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <small>{{home.hero.windowCaption}}</small>
+            </div>
+            <button class="image-zoom-trigger" type="button" data-image-zoom aria-label="{{ui.imageZoom.label}} {{home.hero.webZoom}}"><img class="product-window__image product-window__image--hero" src="{{assetBase}}assets/product/home-campo-ndvi-focus.webp" alt="{{home.hero.webAlt}}" width="1333" height="778" fetchpriority="high" decoding="async"></button>
+          </div>
+          <div class="product-phone product-phone--readable">
+            <div class="product-phone__speaker" aria-hidden="true"></div>
+            <button class="image-zoom-trigger" type="button" data-image-zoom aria-label="{{ui.imageZoom.label}} {{home.hero.phoneZoom}}"><img src="{{assetBase}}assets/product/mobile-3b-ndvi-real.webp" alt="{{home.hero.phoneAlt}}" width="480" height="1041" decoding="async"></button>
+          </div>
+          <div class="product-pills" aria-label="{{home.hero.pillsLabel}}">
+            <span><i aria-hidden="true"></i> {{home.hero.pills.fieldGis}}</span>
+            <span><i aria-hidden="true"></i> {{home.hero.pills.management}}</span>
+            <span><i aria-hidden="true"></i> {{home.hero.pills.results}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-band" id="escala" aria-labelledby="trust-title">
+      <div class="container">
+        <h2 class="sr-only" id="trust-title">{{home.trust.title}}</h2>
+        <div class="trust-grid">
+          <article aria-label="{{home.trust.scaleLabel}}"><strong>{{home.trust.scaleValue}}</strong><span>{{home.trust.scaleText}}</span></article>
+          <article><strong>{{home.trust.platformsValue}}</strong><span>{{home.trust.platformsText}}</span></article>
+          <article><strong>{{home.trust.sharedValue}}</strong><span>{{home.trust.sharedText}}</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process journey" id="como-ayuda">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">{{home.journey.eyebrow}}</span>
+          <h2>{{home.journey.title}}</h2>
+          <p>{{home.journey.body}}</p>
+        </div>
+
+        <div class="journey-grid">
+          <article class="journey-step reveal">
+            <div class="journey-step__top"><span class="journey-step__number">01</span><span class="journey-step__phase">{{home.journey.observe.phase}}</span></div>
+            <figure class="journey-step__media">
+              <button class="image-zoom-trigger" type="button" data-image-zoom aria-label="{{ui.imageZoom.label}} {{home.journey.observe.zoom}}"><img src="{{assetBase}}assets/product/modules/satelital-cuatro-indices.webp" alt="{{home.journey.observe.alt}}" width="1440" height="900" loading="lazy" decoding="async"></button>
+            </figure>
+            <div class="journey-step__copy"><h3>{{home.journey.observe.title}}</h3><p>{{home.journey.observe.body}}</p><a href="{{modules.imagenes-satelitales.url}}">{{home.journey.observe.link}} <span aria-hidden="true">→</span></a></div>
+          </article>
+
+          <article class="journey-step reveal">
+            <div class="journey-step__top"><span class="journey-step__number">02</span><span class="journey-step__phase">{{home.journey.validate.phase}}</span></div>
+            <figure class="journey-step__media journey-step__media--mobile">
+              <button class="image-zoom-trigger" type="button" data-image-zoom aria-label="{{ui.imageZoom.label}} {{home.journey.validate.zoom}}"><img src="{{assetBase}}assets/product/mobile-3b-nota-real.webp" alt="{{home.journey.validate.alt}}" width="480" height="1041" loading="lazy" decoding="async"></button>
+            </figure>
+            <div class="journey-step__copy"><h3>{{home.journey.validate.title}}</h3><p>{{home.journey.validate.body}}</p><a href="{{modules.monitoreo.url}}">{{home.journey.validate.link}} <span aria-hidden="true">→</span></a></div>
+          </article>
+
+          <article class="journey-step reveal">
+            <div class="journey-step__top"><span class="journey-step__number">03</span><span class="journey-step__phase">{{home.journey.act.phase}}</span></div>
+            <figure class="journey-step__media">
+              <button class="image-zoom-trigger" type="button" data-image-zoom aria-label="{{ui.imageZoom.label}} {{home.journey.act.zoom}}"><img src="{{assetBase}}assets/product/prescripcion-3-ambientes-real.webp" alt="{{home.journey.act.alt}}" width="1200" height="638" loading="lazy" decoding="async"></button>
+            </figure>
+            <div class="journey-step__copy"><h3>{{home.journey.act.title}}</h3><p>{{home.journey.act.body}}</p><a href="{{modules.prescripciones.url}}">{{home.journey.act.link}} <span aria-hidden="true">→</span></a></div>
+          </article>
+
+          <article class="journey-step reveal">
+            <div class="journey-step__top"><span class="journey-step__number">04</span><span class="journey-step__phase">{{home.journey.learn.phase}}</span></div>
+            <figure class="journey-step__media">
+              <button class="image-zoom-trigger" type="button" data-image-zoom aria-label="{{ui.imageZoom.label}} {{home.journey.learn.zoom}}"><img src="{{assetBase}}assets/product/modules/analisis-margenes-rinde-esperado.webp" alt="{{home.journey.learn.alt}}" width="2000" height="456" loading="lazy" decoding="async"></button>
+            </figure>
+            <div class="journey-step__copy"><h3>{{home.journey.learn.title}}</h3><p>{{home.journey.learn.body}}</p><a href="{{modules.analisis-gis.url}}">{{home.journey.learn.link}} <span aria-hidden="true">→</span></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section modules-overview" id="modulos">
+      <div class="container">
+        <div class="modules-overview__heading reveal">
+          <span class="eyebrow">{{home.modules.eyebrow}}</span>
+          <h2>{{home.modules.title}}</h2>
+          <p>{{home.modules.body}}</p>
+        </div>
+        <div class="modules-overview__flow reveal" aria-label="{{home.modules.flowLabel}}"><span>{{home.modules.flow.understand}}</span><i aria-hidden="true">→</i><span>{{home.modules.flow.plan}}</span><i aria-hidden="true">→</i><span>{{home.modules.flow.act}}</span><i aria-hidden="true">→</i><span>{{home.modules.flow.learn}}</span><i aria-hidden="true">→</i><span>{{home.modules.flow.manage}}</span></div>
+        <div class="home-modules-grid">
+          <a class="home-module-card reveal" href="{{modules.analisis-gis.url}}"><span class="home-module-card__number">01</span><span class="home-module-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18V9m6 9V5m6 13v-6m4 6H2"></path><path d="m4 7 6-4 6 6 5-4"></path></svg></span><h3>{{modules.analisis-gis.name}}</h3><p>{{home.modules.cards.analisis-gis}}</p><strong>{{home.modules.cardCta}} <i aria-hidden="true">→</i></strong></a>
+          <a class="home-module-card reveal" href="{{modules.imagenes-satelitales.url}}"><span class="home-module-card__number">02</span><span class="home-module-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8 4-8 4-8-4 8-4Z"></path><path d="m4 12 8 4 8-4M4 17l8 4 8-4"></path></svg></span><h3>{{modules.imagenes-satelitales.name}}</h3><p>{{home.modules.cards.imagenes-satelitales}}</p><strong>{{home.modules.cardCta}} <i aria-hidden="true">→</i></strong></a>
+          <a class="home-module-card reveal" href="{{modules.agroclima.url}}"><span class="home-module-card__number">03</span><span class="home-module-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8.5 4.8 4.8 0 0 0 7 18Z"></path><path d="M9 21v-1m4 1v-1m4 1v-1"></path></svg></span><h3>{{modules.agroclima.name}}</h3><p>{{home.modules.cards.agroclima}}</p><strong>{{home.modules.cardCta}} <i aria-hidden="true">→</i></strong></a>
+          <a class="home-module-card reveal" href="{{modules.prescripciones.url}}"><span class="home-module-card__number">04</span><span class="home-module-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V5l5-2 6 2 5-2v15l-5 2-6-2-5 2Z"></path><path d="M9 3v15m6-13v15"></path></svg></span><h3>{{modules.prescripciones.name}}</h3><p>{{home.modules.cards.prescripciones}}</p><strong>{{home.modules.cardCta}} <i aria-hidden="true">→</i></strong></a>
+          <a class="home-module-card reveal" href="{{modules.monitoreo.url}}"><span class="home-module-card__number">05</span><span class="home-module-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"></path><circle cx="12" cy="10" r="2"></circle></svg></span><h3>{{modules.monitoreo.name}}</h3><p>{{home.modules.cards.monitoreo}}</p><strong>{{home.modules.cardCta}} <i aria-hidden="true">→</i></strong></a>
+          <a class="home-module-card reveal" href="{{modules.balance-suelo.url}}"><span class="home-module-card__number">06</span><span class="home-module-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h18M5 7l2 13h10l2-13M8 11h8m-7 4h6"></path><path d="M9 4h6"></path></svg></span><h3>{{modules.balance-suelo.name}}</h3><p>{{home.modules.cards.balance-suelo}}</p><strong>{{home.modules.cardCta}} <i aria-hidden="true">→</i></strong></a>
+          <a class="home-module-card reveal" href="{{modules.muestreo-suelo.url}}"><span class="home-module-card__number">07</span><span class="home-module-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M7 8c2.8 0 5 2.2 5 5-2.8 0-5-2.2-5-5Zm10 3c-2.8 0-5 2.2-5 5 2.8 0 5-2.2 5-5Z"></path></svg></span><h3>{{modules.muestreo-suelo.name}}</h3><p>{{home.modules.cards.muestreo-suelo}}</p><strong>{{home.modules.cardCta}} <i aria-hidden="true">→</i></strong></a>
+          <a class="home-module-card reveal" href="{{modules.gestion.url}}"><span class="home-module-card__number">08</span><span class="home-module-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h3"></path><path d="m14 16 2 2 4-4"></path></svg></span><h3>{{modules.gestion.name}}</h3><p>{{home.modules.cards.gestion}}</p><strong>{{home.modules.cardCta}} <i aria-hidden="true">→</i></strong></a>
+        </div>
+        <aside class="mobile-download reveal" aria-labelledby="mobile-download-title">
+          <div class="mobile-download__copy">
+            <span class="eyebrow">{{home.mobile.eyebrow}}</span>
+            <h3 id="mobile-download-title">{{home.mobile.title}}</h3>
+            <p>{{home.mobile.body}}</p>
+          </div>
+          <div class="mobile-download__actions">
+            <div class="store-badges" aria-label="{{ui.store.label}}">
+              <a class="store-badge store-badge--app-store" href="{{site.appStoreUrl}}" target="_blank" rel="noopener noreferrer"><img src="{{assetBase}}{{ui.store.appStoreBadge}}" alt="{{ui.store.appStoreAlt}}" width="120" height="40" loading="lazy" decoding="async"></a>
+              <a class="store-badge store-badge--google-play" href="{{site.googlePlayUrl}}" target="_blank" rel="noopener noreferrer"><img src="{{assetBase}}{{ui.store.googlePlayBadge}}" alt="{{ui.store.googlePlayAlt}}" width="135" height="52" loading="lazy" decoding="async"></a>
+            </div>
+            <p class="store-download__note">{{ui.store.note}}</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section intelligence" id="inteligencia">
+      <div class="container intelligence__grid">
+        <div class="intelligence__copy reveal">
+          <span class="eyebrow eyebrow--light">{{home.intelligence.eyebrow}}</span>
+          <h2>{{home.intelligence.title}}</h2>
+          <p>{{home.intelligence.body}}</p>
+          <div class="intelligence-flow" aria-label="{{home.intelligence.flowLabel}}"><span>{{home.intelligence.flow.data}}</span><i aria-hidden="true">→</i><span>{{home.intelligence.flow.findings}}</span><i aria-hidden="true">→</i><span>{{home.intelligence.flow.decision}}</span></div>
+        </div>
+        <div class="product-window product-window--dark reveal">
+          <div class="product-window__bar" aria-hidden="true"><span></span><span></span><span></span><small>{{home.intelligence.windowCaption}}</small></div>
+          <div class="review-visual"><button class="image-zoom-trigger" type="button" data-image-zoom aria-label="{{ui.imageZoom.label}} {{home.intelligence.zoom}}"><img src="{{assetBase}}assets/product/comparativa-4-mapas-cargados.webp" alt="{{home.intelligence.alt}}" width="2000" height="944" loading="lazy" decoding="async"></button><span>{{home.intelligence.badge}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section team" id="equipo">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">{{home.team.eyebrow}}</span>
+          <h2>{{home.team.title}}</h2>
+          <p>{{home.team.body}}</p>
+        </div>
+        <div class="team-grid">
+          <article class="team-card reveal"><span class="team-card__role">{{home.team.direction.role}}</span><h3>{{home.team.direction.title}}</h3><p>{{home.team.direction.body}}</p></article>
+          <article class="team-card team-card--featured reveal"><span class="team-card__role">{{home.team.producer.role}}</span><h3>{{home.team.producer.title}}</h3><p>{{home.team.producer.body}}</p></article>
+          <article class="team-card reveal"><span class="team-card__role">{{home.team.advisor.role}}</span><h3>{{home.team.advisor.title}}</h3><p>{{home.team.advisor.body}}</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section clients" id="clientes" aria-labelledby="clients-title">
+      <div class="container">
+        <div class="clients__heading reveal">
+          <span class="eyebrow">{{home.clients.eyebrow}}</span>
+          <h2 id="clients-title">{{home.clients.title}}</h2>
+          <p>{{home.clients.body}}</p>
+        </div>
+      </div>
+      <div class="clients-marquee">
+        <div class="clients-marquee__track">
+          <ul class="clients-marquee__list" aria-label="{{home.clients.listLabel}}">
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/bayer.webp" alt="Bayer" width="82" height="82" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/sound-agriculture.webp" alt="Sound Agriculture" width="212" height="82" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/el-criterio.webp" alt="El Criterio" width="280" height="52" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/farmios.webp" alt="FarmiOS" width="93" height="82" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/mc-agroservicios.webp" alt="MC Agroservicios" width="187" height="82" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/agronasaja.webp" alt="Agronasaja" width="280" height="48" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/surgenza.webp" alt="Surgenza" width="280" height="62" decoding="async"></li>
+          </ul>
+          <ul class="clients-marquee__list" aria-hidden="true">
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/bayer.webp" alt="" width="82" height="82" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/sound-agriculture.webp" alt="" width="212" height="82" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/el-criterio.webp" alt="" width="280" height="52" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/farmios.webp" alt="" width="93" height="82" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/mc-agroservicios.webp" alt="" width="187" height="82" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/agronasaja.webp" alt="" width="280" height="48" decoding="async"></li>
+            <li class="client-logo"><img src="{{assetBase}}assets/clients/mono/surgenza.webp" alt="" width="280" height="62" decoding="async"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section start" id="como-empezamos" aria-labelledby="start-title">
+      <div class="container">
+        <div class="start-panel reveal">
+          <div class="start-panel__intro">
+            <span class="eyebrow">{{home.start.eyebrow}}</span>
+            <h2 id="start-title">{{home.start.title}}</h2>
+            <p>{{home.start.body}}</p>
+            <a class="button button--primary" href="{{site.bookingUrl}}" target="_blank" rel="noopener noreferrer">{{ui.cta.bookDemo}}</a>
+          </div>
+          <ol class="start-steps">
+            <li class="start-step"><span>01</span><div><strong>{{home.start.steps.0.title}}</strong><p>{{home.start.steps.0.body}}</p></div></li>
+            <li class="start-step"><span>02</span><div><strong>{{home.start.steps.1.title}}</strong><p>{{home.start.steps.1.body}}</p></div></li>
+            <li class="start-step"><span>03</span><div><strong>{{home.start.steps.2.title}}</strong><p>{{home.start.steps.2.body}}</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" id="demo">
+      <div class="container demo__grid">
+        <div class="demo__copy reveal">
+          <span class="eyebrow eyebrow--light">{{home.demo.eyebrow}}</span>
+          <h2>{{home.demo.title}}</h2>
+          <p>{{home.demo.body}}</p>
+          <div class="demo__schedule" aria-label="{{home.demo.scheduleLabel}}">
+            <div class="demo__schedule-icon" aria-hidden="true">30</div>
+            <div><strong>{{home.demo.scheduleTitle}}</strong><span>{{home.demo.scheduleHours}}</span></div>
+          </div>
+          <a class="button button--primary demo__calendar-button" href="{{site.bookingUrl}}" target="_blank" rel="noopener noreferrer">{{home.demo.calendarButton}}</a>
+          <ul class="demo__benefits"><li><span aria-hidden="true">✓</span> {{home.demo.benefits.0}}</li><li><span aria-hidden="true">✓</span> {{home.demo.benefits.1}}</li><li><span aria-hidden="true">✓</span> {{home.demo.benefits.2}}</li></ul>
+          <a class="demo__whatsapp" href="{{whatsappUrl}}" target="_blank" rel="noopener noreferrer">{{home.demo.whatsappLink}} →</a>
+        </div>
+
+        <div class="demo-form-shell reveal">
+          <form class="demo-form" action="https://formspree.io/f/maqbggyl" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="{{home.form.subject}}">
+            <input type="hidden" name="module_interest" value="">
+            <div class="demo-form__header"><span>{{home.form.header}}</span><small>{{home.form.headerNote}}</small></div>
+            <div class="form-grid">
+              <div class="form-field"><label for="name">{{home.form.name}} *</label><input id="name" name="name" type="text" autocomplete="name" placeholder="{{home.form.namePlaceholder}}" required></div>
+              <div class="form-field"><label for="company">{{home.form.company}}</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="{{home.form.companyPlaceholder}}"></div>
+              <div class="form-field"><label for="email">{{home.form.email}} *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="{{home.form.emailPlaceholder}}" required></div>
+              <div class="form-field"><label for="phone">{{home.form.phone}}</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="{{home.form.phonePlaceholder}}"></div>
+              <div class="form-field form-field--full"><label for="message">{{home.form.message}}</label><textarea id="message" name="message" rows="4" placeholder="{{home.form.messagePlaceholder}}"></textarea></div>
+            </div>
+            <button class="button button--primary button--full" type="submit">{{home.form.submit}}</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="demo-form__privacy">{{home.form.privacyBefore}} <a href="{{site.privacyUrl}}" target="_blank" rel="noopener noreferrer">{{home.form.privacyLink}}</a>{{home.form.privacyAfter}}</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="preguntas-frecuentes" aria-labelledby="faq-title">
+      <div class="container faq__container">
+        <div class="faq__heading reveal">
+          <span class="eyebrow">{{home.faq.eyebrow}}</span>
+          <h2 id="faq-title">{{home.faq.title}}</h2>
+          <p>{{home.faq.body}}</p>
+        </div>
+        <div class="faq__list">
+          <details class="faq__item reveal"><summary>{{home.faq.items.0.question}}</summary><p>{{home.faq.items.0.answer}}</p></details>
+          <details class="faq__item reveal"><summary>{{home.faq.items.1.question}}</summary><p>{{home.faq.items.1.answer}}</p></details>
+          <details class="faq__item reveal"><summary>{{home.faq.items.2.question}}</summary><p>{{home.faq.items.2.answer}}</p></details>
+          <details class="faq__item reveal"><summary>{{home.faq.items.3.question}}</summary><p>{{home.faq.items.3.answer}}</p></details>
+          <details class="faq__item reveal"><summary>{{home.faq.items.4.question}}</summary><p>{{home.faq.items.4.answer}}</p></details>
+          <details class="faq__item reveal"><summary>{{home.faq.items.5.question}}</summary><p>{{home.faq.items.5.answer}}</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="image-lightbox" aria-label="{{ui.lightbox.label}}">
+    <button class="image-lightbox__close" type="button" aria-label="{{ui.lightbox.close}}">×</button>
+    <figure><img class="image-lightbox__image" src="" alt=""><figcaption class="image-lightbox__caption"></figcaption></figure>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="brand brand--footer" href="#plataforma" aria-label="{{ui.brand.homeLabel}}"><img class="brand__icon" src="{{assetBase}}assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="" width="40" height="40"><img class="brand__wordmark" src="{{assetBase}}assets/logo-farmia-wordmark-official.png" alt="{{site.name}}" width="218" height="52" loading="lazy" decoding="async"></a>
+        <p>{{ui.footer.tagline}}</p>
+      </div>
+      <nav class="site-footer__links" aria-label="{{ui.footer.product}}"><strong>{{ui.footer.product}}</strong><a href="#como-ayuda">{{ui.nav.howItHelps}}</a><a href="#modulos">{{ui.nav.modules}}</a><a href="#preguntas-frecuentes">{{ui.footer.faq}}</a><a href="{{site.loginUrl}}" target="_blank" rel="noopener noreferrer">{{ui.nav.app}}</a></nav>
+      <nav class="site-footer__links" aria-label="{{ui.footer.contact}}"><strong>{{ui.footer.contact}}</strong><a href="mailto:{{site.email}}">{{site.email}}</a><a href="{{whatsappUrl}}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="{{site.instagramUrl}}" target="_blank" rel="noopener noreferrer">Instagram</a><a href="{{site.linkedinUrl}}" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav>
+    </div>
+    <div class="container site-footer__bottom"><span>© <span data-current-year>2026</span> FarmIA Solutions.</span><div><span>D‑U‑N‑S: {{site.duns}}</span><a href="{{site.privacyUrl}}" target="_blank" rel="noopener noreferrer">{{ui.footer.privacy}}</a></div></div>
+  </footer>
+
+  <script src="{{assetBase}}script.js?v=20260901-1"></script>
+</body>
+</html>
