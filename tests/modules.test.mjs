@@ -5,6 +5,8 @@ import { join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
 import test from 'node:test'
+import en from '../content/i18n/en.mjs'
+import pt from '../content/i18n/pt.mjs'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const catalogPath = join(root, 'content', 'modules.mjs')
@@ -248,12 +250,16 @@ test('legacy module hub redirects visitors to the home module grid', () => {
   assert.doesNotMatch(html, /module-card-grid/)
 })
 
-test('sitemap publishes home and all eight detail URLs without the legacy hub', () => {
+test('sitemap publishes each language home and its eight detail URLs without the legacy hubs', () => {
   const xml = readOutput('sitemap.xml')
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
   assert.deepEqual(urls, [
     'https://www.farmiasolutions.com/',
     ...expectedModules.map(([slug]) => `https://www.farmiasolutions.com/modulos/${slug}/`),
+    'https://www.farmiasolutions.com/en/',
+    ...expectedModules.map(([slug]) => `https://www.farmiasolutions.com/en/modules/${en.modules[slug].slug}/`),
+    'https://www.farmiasolutions.com/pt/',
+    ...expectedModules.map(([slug]) => `https://www.farmiasolutions.com/pt/modulos/${pt.modules[slug].slug}/`),
   ])
 })
 

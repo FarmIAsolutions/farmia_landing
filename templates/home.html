@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{home.meta.description}}">
   <meta name="theme-color" content="#1a9850">
+  {{{headLinks}}}
 
   <meta property="og:title" content="{{home.meta.title}}">
   <meta property="og:description" content="{{home.meta.ogDescription}}">
@@ -12,12 +13,13 @@
   <meta property="og:url" content="{{homeAbsoluteUrl}}">
   <meta property="og:image" content="{{site.origin}}/assets/product/home-campo-ndvi-focus.webp">
   <meta property="og:locale" content="{{ogLocale}}">
+  {{{ogLocaleAlternates}}}
 
   <link rel="icon" type="image/png" href="{{assetBase}}assets/favicon.png?v=20260901-1">
   <link rel="preload" href="{{assetBase}}assets/fonts/roboto-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{assetBase}}assets/logo-farmia-wordmark-official.png" as="image" type="image/png">
   <link rel="preload" href="{{assetBase}}assets/product/home-campo-ndvi-focus.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="{{assetBase}}styles.css?v=20260901-3">
+  <link rel="stylesheet" href="{{assetBase}}styles.css?v={{assetVersions.styles}}">
 
   <title>{{home.meta.title}}</title>
 
@@ -26,11 +28,11 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">{{ui.skipLink}}</a>
+  <a class="skip-link" href="#{{anchors.content}}">{{ui.skipLink}}</a>
 
-  <header class="site-header" id="inicio">
+  <header class="site-header" id="{{anchors.top}}">
     <div class="container site-header__inner">
-      <a class="brand" href="#plataforma" aria-label="{{ui.brand.homeLabel}}">
+      <a class="brand" href="#{{anchors.platform}}" aria-label="{{ui.brand.homeLabel}}">
         <img class="brand__icon" src="{{assetBase}}assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="" width="40" height="40">
         <img class="brand__wordmark" src="{{assetBase}}assets/logo-farmia-wordmark-official.png" alt="{{site.name}}" width="218" height="52" fetchpriority="high">
       </a>
@@ -43,12 +45,13 @@
 
       <nav class="site-nav" id="site-nav" aria-label="{{ui.nav.label}}">
         <ul class="site-nav__list">
-          <li><a class="nav-link" href="#plataforma">{{ui.nav.platform}}</a></li>
-          <li><a class="nav-link" href="#como-ayuda">{{ui.nav.howItHelps}}</a></li>
-          <li><a class="nav-link" href="#modulos">{{ui.nav.modules}}</a></li>
-          <li><a class="nav-link" href="#clientes">{{ui.nav.clients}}</a></li>
+          <li><a class="nav-link" href="#{{anchors.platform}}">{{ui.nav.platform}}</a></li>
+          <li><a class="nav-link" href="#{{anchors.howItHelps}}">{{ui.nav.howItHelps}}</a></li>
+          <li><a class="nav-link" href="#{{anchors.modules}}">{{ui.nav.modules}}</a></li>
+          <li><a class="nav-link" href="#{{anchors.clients}}">{{ui.nav.clients}}</a></li>
         </ul>
         <div class="site-nav__actions">
+          {{{languageSwitcherHeader}}}
           <a class="button button--app button--small" href="{{site.loginUrl}}" target="_blank" rel="noopener noreferrer">{{ui.nav.app}}</a>
           <a class="button button--primary button--small" href="{{site.bookingUrl}}" target="_blank" rel="noopener noreferrer">{{ui.cta.bookDemo}}</a>
         </div>
@@ -56,8 +59,8 @@
     </div>
   </header>
 
-  <main id="contenido">
-    <section class="hero" id="plataforma">
+  <main id="{{anchors.content}}">
+    <section class="hero" id="{{anchors.platform}}">
       <div class="container hero__grid">
         <div class="hero__copy reveal">
           <span class="eyebrow">{{home.hero.eyebrow}}</span>
@@ -95,7 +98,7 @@
       </div>
     </section>
 
-    <section class="trust-band" id="escala" aria-labelledby="trust-title">
+    <section class="trust-band" id="{{anchors.scale}}" aria-labelledby="trust-title">
       <div class="container">
         <h2 class="sr-only" id="trust-title">{{home.trust.title}}</h2>
         <div class="trust-grid">
@@ -106,7 +109,7 @@
       </div>
     </section>
 
-    <section class="section process journey" id="como-ayuda">
+    <section class="section process journey" id="{{anchors.howItHelps}}">
       <div class="container">
         <div class="section-heading reveal">
           <span class="eyebrow">{{home.journey.eyebrow}}</span>
@@ -150,7 +153,7 @@
       </div>
     </section>
 
-    <section class="section modules-overview" id="modulos">
+    <section class="section modules-overview" id="{{anchors.modules}}">
       <div class="container">
         <div class="modules-overview__heading reveal">
           <span class="eyebrow">{{home.modules.eyebrow}}</span>
@@ -176,8 +179,8 @@
           </div>
           <div class="mobile-download__actions">
             <div class="store-badges" aria-label="{{ui.store.label}}">
-              <a class="store-badge store-badge--app-store" href="{{site.appStoreUrl}}" target="_blank" rel="noopener noreferrer"><img src="{{assetBase}}{{ui.store.appStoreBadge}}" alt="{{ui.store.appStoreAlt}}" width="120" height="40" loading="lazy" decoding="async"></a>
-              <a class="store-badge store-badge--google-play" href="{{site.googlePlayUrl}}" target="_blank" rel="noopener noreferrer"><img src="{{assetBase}}{{ui.store.googlePlayBadge}}" alt="{{ui.store.googlePlayAlt}}" width="135" height="52" loading="lazy" decoding="async"></a>
+              <a class="store-badge store-badge--app-store" href="{{storeUrls.appStore}}" target="_blank" rel="noopener noreferrer"><img src="{{assetBase}}{{ui.store.appStoreBadge}}" alt="{{ui.store.appStoreAlt}}" width="120" height="40" loading="lazy" decoding="async"></a>
+              <a class="store-badge store-badge--google-play" href="{{storeUrls.googlePlay}}" target="_blank" rel="noopener noreferrer"><img src="{{assetBase}}{{ui.store.googlePlayBadge}}" alt="{{ui.store.googlePlayAlt}}" width="135" height="52" loading="lazy" decoding="async"></a>
             </div>
             <p class="store-download__note">{{ui.store.note}}</p>
           </div>
@@ -185,7 +188,7 @@
       </div>
     </section>
 
-    <section class="section intelligence" id="inteligencia">
+    <section class="section intelligence" id="{{anchors.intelligence}}">
       <div class="container intelligence__grid">
         <div class="intelligence__copy reveal">
           <span class="eyebrow eyebrow--light">{{home.intelligence.eyebrow}}</span>
@@ -200,7 +203,7 @@
       </div>
     </section>
 
-    <section class="section team" id="equipo">
+    <section class="section team" id="{{anchors.team}}">
       <div class="container">
         <div class="section-heading reveal">
           <span class="eyebrow">{{home.team.eyebrow}}</span>
@@ -215,7 +218,7 @@
       </div>
     </section>
 
-    <section class="section clients" id="clientes" aria-labelledby="clients-title">
+    <section class="section clients" id="{{anchors.clients}}" aria-labelledby="clients-title">
       <div class="container">
         <div class="clients__heading reveal">
           <span class="eyebrow">{{home.clients.eyebrow}}</span>
@@ -247,7 +250,7 @@
       </div>
     </section>
 
-    <section class="section start" id="como-empezamos" aria-labelledby="start-title">
+    <section class="section start" id="{{anchors.start}}" aria-labelledby="start-title">
       <div class="container">
         <div class="start-panel reveal">
           <div class="start-panel__intro">
@@ -265,7 +268,7 @@
       </div>
     </section>
 
-    <section class="demo" id="demo">
+    <section class="demo" id="{{anchors.demo}}">
       <div class="container demo__grid">
         <div class="demo__copy reveal">
           <span class="eyebrow eyebrow--light">{{home.demo.eyebrow}}</span>
@@ -281,9 +284,10 @@
         </div>
 
         <div class="demo-form-shell reveal">
-          <form class="demo-form" action="https://formspree.io/f/maqbggyl" method="POST" novalidate>
+          <form class="demo-form" action="{{site.formspreeUrl}}" method="POST" novalidate>
             <input type="hidden" name="_subject" value="{{home.form.subject}}">
             <input type="hidden" name="module_interest" value="">
+            <input type="hidden" name="language" value="{{code}}">
             <div class="demo-form__header"><span>{{home.form.header}}</span><small>{{home.form.headerNote}}</small></div>
             <div class="form-grid">
               <div class="form-field"><label for="name">{{home.form.name}} *</label><input id="name" name="name" type="text" autocomplete="name" placeholder="{{home.form.namePlaceholder}}" required></div>
@@ -300,7 +304,7 @@
       </div>
     </section>
 
-    <section class="section faq" id="preguntas-frecuentes" aria-labelledby="faq-title">
+    <section class="section faq" id="{{anchors.faq}}" aria-labelledby="faq-title">
       <div class="container faq__container">
         <div class="faq__heading reveal">
           <span class="eyebrow">{{home.faq.eyebrow}}</span>
@@ -327,15 +331,15 @@
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
-        <a class="brand brand--footer" href="#plataforma" aria-label="{{ui.brand.homeLabel}}"><img class="brand__icon" src="{{assetBase}}assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="" width="40" height="40"><img class="brand__wordmark" src="{{assetBase}}assets/logo-farmia-wordmark-official.png" alt="{{site.name}}" width="218" height="52" loading="lazy" decoding="async"></a>
+        <a class="brand brand--footer" href="#{{anchors.platform}}" aria-label="{{ui.brand.homeLabel}}"><img class="brand__icon" src="{{assetBase}}assets/Logo_farmIA__icono___1___4_-removebg-preview.png" alt="" width="40" height="40"><img class="brand__wordmark" src="{{assetBase}}assets/logo-farmia-wordmark-official.png" alt="{{site.name}}" width="218" height="52" loading="lazy" decoding="async"></a>
         <p>{{ui.footer.tagline}}</p>
       </div>
-      <nav class="site-footer__links" aria-label="{{ui.footer.product}}"><strong>{{ui.footer.product}}</strong><a href="#como-ayuda">{{ui.nav.howItHelps}}</a><a href="#modulos">{{ui.nav.modules}}</a><a href="#preguntas-frecuentes">{{ui.footer.faq}}</a><a href="{{site.loginUrl}}" target="_blank" rel="noopener noreferrer">{{ui.nav.app}}</a></nav>
+      <nav class="site-footer__links" aria-label="{{ui.footer.product}}"><strong>{{ui.footer.product}}</strong><a href="#{{anchors.howItHelps}}">{{ui.nav.howItHelps}}</a><a href="#{{anchors.modules}}">{{ui.nav.modules}}</a><a href="#{{anchors.faq}}">{{ui.footer.faq}}</a><a href="{{site.loginUrl}}" target="_blank" rel="noopener noreferrer">{{ui.nav.app}}</a></nav>
       <nav class="site-footer__links" aria-label="{{ui.footer.contact}}"><strong>{{ui.footer.contact}}</strong><a href="mailto:{{site.email}}">{{site.email}}</a><a href="{{whatsappUrl}}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="{{site.instagramUrl}}" target="_blank" rel="noopener noreferrer">Instagram</a><a href="{{site.linkedinUrl}}" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav>
     </div>
-    <div class="container site-footer__bottom"><span>© <span data-current-year>2026</span> FarmIA Solutions.</span><div><span>D‑U‑N‑S: {{site.duns}}</span><a href="{{site.privacyUrl}}" target="_blank" rel="noopener noreferrer">{{ui.footer.privacy}}</a></div></div>
+    <div class="container site-footer__bottom"><span>© <span data-current-year>2026</span> FarmIA Solutions.</span><div>{{{languageSwitcherFooter}}}<span>D‑U‑N‑S: {{site.duns}}</span><a href="{{site.privacyUrl}}" target="_blank" rel="noopener noreferrer">{{ui.footer.privacy}}</a></div></div>
   </footer>
 
-  <script src="{{assetBase}}script.js?v=20260901-1"></script>
+  <script src="{{assetBase}}script.js?v={{assetVersions.script}}"></script>
 </body>
 </html>
