@@ -21,6 +21,15 @@ El sitio se publica en tres idiomas con el mismo diseño. **El español es el id
 - El formulario de demo envía un campo oculto `language` (`es`, `en` o `pt`) y un asunto traducido.
 - La terminología sigue el glosario del producto (`docs/i18n/GLOSSARY.md` y `STYLE.md` del repo de la app): Lote → *field* / *talhão*, Campaña → *season* / *safra*, Ambiente → *management zone* / *zona de manejo*, Monitoreo → *scouting* / *monitoramento*, etc. `tests/i18n.test.mjs` rechaza los términos prohibidos del glosario.
 
+### Idioma según el navegador
+
+`vercel.json` redirige **solo la página principal** (`/`) a `/pt/` o `/en/` cuando el primer idioma del navegador (`Accept-Language`) es portugués o inglés. Cualquier otro idioma ve el español.
+
+- Los enlaces directos a `/en/`, `/pt/` o a un módulo nunca se redirigen.
+- Al elegir un idioma en el selector, `script.js` guarda la cookie `farmia_lang` por un año y la redirección deja de actuar: quien elige «Español» se queda en español.
+- Es una redirección temporal (307) y no depende de la IP.
+- No se puede probar con el servidor local ni en las vistas previas protegidas de Vercel: se verifica en producción con `curl -I -H "Accept-Language: pt-BR" https://www.farmiasolutions.com/`.
+
 ## Estructura
 
 - `templates/home.html`: el marcado de la página principal, con marcadores `{{clave}}` en lugar de texto. Lo comparten los tres idiomas.

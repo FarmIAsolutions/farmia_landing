@@ -424,3 +424,53 @@ test('script.js speaks the page language and falls back to Spanish without a lan
     assert.equal(invalid.form.children['.form-status'].textContent, messages.invalid, `${label}: invalid`)
   }
 })
+
+test('redirects only the home page by browser language, and only until a language is chosen', () => {
+  const config = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'))
+  assert.deepEqual(Object.keys(config).filter((key) => key !== '$schema'), ['redirects'])
+  assert.deepEqual(config.redirects.map(({ destination }) => destination), ['/pt/', '/en/'])
+
+  for (const [index, prefix] of [[0, 'pt'], [1, 'en']]) {
+    const rule = config.redirects[index]
+    assert.equal(rule.source, '/', 'only the home page is redirected')
+    assert.equal(rule.permanent, false, 'the redirect is temporary')
+    assert.deepEqual(rule.has, [{ type: 'header', key: 'accept-language', value: { pre: prefix } }], 'matches the first browser language only')
+    assert.deepEqual(rule.missing, [{ type: 'cookie', key: 'farmia_lang' }], 'a chosen language switches the redirect off')
+    assert.ok(existsSync(new URL(`..${rule.destination}index.html`, import.meta.url)))
+  }
+})
+
+test('remembers a language chosen in the switcher so the home redirect stops', () => {
+  const listeners = []
+  const document = {
+    cookie: '',
+    body: { classList: { toggle() {}, add() {}, remove() {} } },
+    documentElement: { lang: 'pt-BR', classList: { add() {} } },
+    addEventListener(type, listener) { if (type === 'click') listeners.push(listener) },
+    querySelector() { return null },
+    querySelectorAll() { return [] },
+  }
+  const window = {
+    addEventListener() {},
+    history: { pushState() {} },
+    location: { hash: '', search: '' },
+    matchMedia() { return { matches: false, addEventListener() {} } },
+    scrollTo() {},
+    scrollY: 0,
+  }
+  runInNewContext(readFileSync(new URL('../script.js', import.meta.url), 'utf8'), { document, window, URLSearchParams })
+
+  const click = (target) => listeners.forEach((listener) => listener({ preventDefault() {}, target }))
+  const languageLink = (hreflang) => ({
+    closest: (selector) => selector.includes('.language-menu a[hreflang]') ? { getAttribute: (name) => name === 'hreflang' ? hreflang : null } : null,
+  })
+
+  click({ closest: () => null })
+  assert.equal(document.cookie, '', 'other clicks do not set the cookie')
+
+  click(languageLink('es'))
+  assert.equal(document.cookie, 'farmia_lang=es; path=/; max-age=31536000; SameSite=Lax')
+
+  click(languageLink('pt-BR'))
+  assert.match(document.cookie, /^farmia_lang=pt; path=\/;/)
+})
