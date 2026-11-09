@@ -139,11 +139,11 @@ test('offers eight direct module journeys without adding a catalog detour', () =
   assert.doesNotMatch(html, /Análisis financiero por ambiente/)
 })
 
-test('publishes only approved trust signals and omits the legal entity name', () => {
+test('publishes approved trust signals and identifies the legal entity behind the brand', () => {
   assert.match(html, /\+400\.000 ha centralizadas en FarmIA/)
   assert.doesNotMatch(html, /\+120\.000 ha/)
   assert.match(html, /D[‑-]U[‑-]N[‑-]S[^0-9]*352223533/)
-  assert.doesNotMatch(html, /CACICU 26/i)
+  assert.match(html, /FarmIA Solutions\. Nombre comercial de CACICU 26 S\.A\./)
 })
 
 test('shows the approved clients once to assistive technology inside a seamless visual marquee', () => {

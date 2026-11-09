@@ -302,7 +302,7 @@ function footer(locale, page) {
       <nav class="site-footer__links" aria-label="${escapeHtml(ui.footer.product)}"><strong>${escapeHtml(ui.footer.product)}</strong><a href="${home}#${anchors.howItHelps}">${escapeHtml(ui.nav.howItHelps)}</a><a href="${home}#${anchors.modules}">${escapeHtml(ui.nav.modules)}</a><a href="${home}#${anchors.faq}">${escapeHtml(ui.footer.faq)}</a><a href="${site.loginUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(ui.nav.app)}</a></nav>
       <nav class="site-footer__links" aria-label="${escapeHtml(ui.footer.contact)}"><strong>${escapeHtml(ui.footer.contact)}</strong><a href="mailto:${site.email}">${site.email}</a><a href="${whatsapp}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="${site.instagramUrl}" target="_blank" rel="noopener noreferrer">Instagram</a><a href="${site.linkedinUrl}" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav>
     </div>
-    <div class="container site-footer__bottom"><span>© <span data-current-year>2026</span> FarmIA Solutions.</span><div>${languageSwitcher(locale, page, 'footer')}<span>D‑U‑N‑S: ${site.duns}</span><a href="${site.privacyUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(ui.footer.privacy)}</a></div></div>
+    <div class="container site-footer__bottom"><span>© <span data-current-year>2026</span> FarmIA Solutions. ${escapeHtml(ui.footer.legal)}</span><div>${languageSwitcher(locale, page, 'footer')}<span>D‑U‑N‑S: ${site.duns}</span><a href="${site.privacyUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(ui.footer.privacy)}</a></div></div>
   </footer>`
 }
 
@@ -445,6 +445,9 @@ function homeContext(locale) {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: site.name,
+    legalName: site.legalName,
+    alternateName: site.alternateName,
+    foundingDate: site.foundingDate,
     url: `${site.origin}${home}`,
     logo: `${site.origin}/assets/logo-icon.png`,
     email: site.email,

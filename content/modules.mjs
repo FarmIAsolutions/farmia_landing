@@ -1,5 +1,8 @@
 export const site = {
   name: 'FarmIA',
+  legalName: 'CACICU 26 S.A.',
+  alternateName: 'FarmIA Solutions',
+  foundingDate: '2026-04-23',
   origin: 'https://www.farmiasolutions.com',
   loginUrl: 'https://app.farmiasolutions.com',
   bookingUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2EZbkSfAAHaHis-QxOTnS3ca11N6290qr_glH9MJ1WR8RJ7M6kccGXflEpKw9u18SgO9oLuZKJ',

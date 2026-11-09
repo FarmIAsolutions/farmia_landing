@@ -63,6 +63,7 @@ export default {
       contact: 'Contacto',
       faq: 'Preguntas frecuentes',
       privacy: 'Privacidad',
+      legal: 'Nombre comercial de CACICU 26 S.A.',
     },
     store: {
       label: 'Descargar FarmIA Mobile',
