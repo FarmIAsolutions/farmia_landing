@@ -62,6 +62,7 @@ export default {
       contact: 'Contato',
       faq: 'Perguntas frequentes',
       privacy: 'Privacidade',
+      legal: 'Nome fantasia da CACICU 26 S.A.',
     },
     store: {
       label: 'Baixar o FarmIA Mobile',
@@ -83,7 +84,7 @@ export default {
     },
     modulePage: {
       productWindow: 'Tela real da FarmIA',
-      tasksEyebrow: 'O que ajuda a resolver',
+      tasksEyebrow: 'O que ajuda você a resolver',
       tasksTitle: 'Menos etapas manuais. Mais contexto para decidir.',
       galleryEyebrow: 'Produto real',
       galleryTitle: 'Duas telas que completam o percurso.',
@@ -110,7 +111,7 @@ export default {
       titleLead: 'Menos tempo procurando dados.',
       titleHighlight: 'Mais tempo tomando decisões.',
       lead: 'A FarmIA reúne as informações técnicas, produtivas, operacionais e financeiras em um só lugar e usa IA para escalar a análise de toda a sua empresa rural.',
-      support: 'Produtor, consultor e diretoria trabalhando sobre as mesmas informações.',
+      support: 'Produtor, consultor e diretoria trabalhando com as mesmas informações.',
       productLabel: 'Telas da FarmIA na web e no celular',
       windowCaption: 'Um talhão · Todas as informações e ferramentas',
       webZoom: 'visão geral da fazenda com NDVI',
@@ -174,7 +175,7 @@ export default {
     modules: {
       eyebrow: 'Tudo em um só lugar',
       title: 'Oito módulos. Um mesmo contexto.',
-      body: 'Cada módulo resolve uma parte concreta do trabalho, e os módulos técnicos seguem sobre o mesmo contexto do talhão. Escolha um para conhecê-lo em detalhe.',
+      body: 'Cada módulo resolve uma parte concreta do trabalho, e os módulos técnicos continuam no mesmo contexto do talhão. Escolha um para conhecê-lo em detalhe.',
       flowLabel: 'Continuidade do trabalho na FarmIA',
       flow: {
         understand: 'Entender',
@@ -265,11 +266,11 @@ export default {
         'Tour pela web e pelo celular',
         'Convite e link do Meet automáticos',
       ],
-      whatsappLink: 'Prefere conversar agora? Fale com a gente pelo WhatsApp',
+      whatsappLink: 'Prefere conversar agora? Fale conosco pelo WhatsApp',
     },
     form: {
       subject: 'Nova solicitação de demo - FarmIA (português)',
-      header: 'Prefere que a gente entre em contato?',
+      header: 'Prefere que entremos em contato?',
       headerNote: 'Deixe seus dados e combinamos com você.',
       name: 'Nome',
       namePlaceholder: 'Seu nome',
@@ -282,17 +283,17 @@ export default {
       message: 'O que você gostaria de resolver?',
       messagePlaceholder: 'Conte rapidamente sobre a sua operação e onde hoje se perde mais tempo.',
       submit: 'Solicitar contato',
-      privacyBefore: 'Ao enviar o formulário, você aceita que a gente entre em contato sobre a FarmIA. Consulte a nossa',
+      privacyBefore: 'Ao enviar o formulário, você aceita que entremos em contato sobre a FarmIA. Consulte a nossa',
       privacyLink: 'política de privacidade',
       privacyAfter: '.',
     },
     faq: {
       eyebrow: 'Perguntas frequentes',
       title: 'O essencial antes de começar',
-      body: 'Se a sua dúvida não estiver aqui, fale com a gente pelo WhatsApp e conversamos.',
+      body: 'Se a sua dúvida não estiver aqui, fale conosco pelo WhatsApp e conversamos.',
       items: [
         { question: 'Que informações posso centralizar na FarmIA?', answer: 'Informações técnicas, produtivas, operacionais e financeiras: talhões, safras, mapas, imagens de satélite, monitoramentos, prescrições, documentos, custos e resultados.' },
-        { question: 'Para quem a plataforma foi pensada?', answer: 'Para diretoria, produtores e consultores que precisam trabalhar sobre uma mesma realidade sem reconstruir as informações entre arquivos, mensagens e planilhas.' },
+        { question: 'Para quem a plataforma foi pensada?', answer: 'Para diretoria, produtores e consultores que precisam trabalhar a partir de uma mesma realidade sem reconstruir as informações entre arquivos, mensagens e planilhas.' },
         { question: 'A FarmIA substitui o critério do agrônomo?', answer: 'Não. A FarmIA organiza informações, conecta evidências e traz sugestões. O profissional revisa o contexto, valida e toma a decisão.' },
         { question: 'A FarmIA funciona no celular e no campo?', answer: 'Sim. A plataforma combina web e aplicativo para consultar talhões e imagens e registrar observações georreferenciadas durante o trabalho de campo.' },
         { question: 'Como é a implantação?', answer: 'Primeiro entendemos a sua operação e os módulos prioritários. Depois organizamos as informações iniciais e acompanhamos a equipe na implantação.' },
@@ -337,7 +338,7 @@ export default {
         { name: 'Diretoria', body: 'Acessa resultados consistentes para priorizar onde aprofundar.' },
       ],
       connections: {
-        'imagenes-satelitales': 'Some a evolução da lavoura e o relevo como novas camadas da análise.',
+        'imagenes-satelitales': 'Adicione a evolução da lavoura e o relevo como novas camadas da análise.',
         prescripciones: 'Transforme o diagnóstico por zona de manejo em uma prescrição em taxa variável pronta para usar.',
         'balance-suelo': 'Leve os resultados da safra ao acompanhamento de nutrientes do talhão.',
       },
@@ -359,7 +360,7 @@ export default {
       workflow: [
         { title: 'Escolha o talhão', body: 'Acesse o histórico de satélite a partir do contexto produtivo que a sua equipe já usa.' },
         { title: 'Compare índices e datas', body: 'Alterne entre NDVI, NDRE, umidade e outras camadas com uma escala legível.' },
-        { title: 'Leve o achado ao trabalho', body: 'Confronte o padrão com análises, notas de campo ou uma futura prescrição.' },
+        { title: 'Leve o achado para a prática', body: 'Confronte o padrão com análises, notas de campo ou uma futura prescrição.' },
       ],
       gallery: [
         { alt: 'Comparação real de quatro visualizações de satélite do mesmo talhão na FarmIA', caption: 'Quatro visualizações (NDVI, NDMI, NDWI e NDRE) para comparar sinais na mesma data.' },
@@ -407,7 +408,7 @@ export default {
       connections: {
         monitoreo: 'Relacione as condições climáticas com as observações registradas no talhão.',
         'imagenes-satelitales': 'Compare o clima com a evolução mostrada pelos índices de satélite.',
-        'analisis-gis': 'Some o contexto climático à revisão dos resultados da safra.',
+        'analisis-gis': 'Adicione o contexto climático à revisão dos resultados da safra.',
       },
       whatsappMessage: 'Olá, quero conhecer o módulo Agroclima da FarmIA e agendar uma demo.',
     },
@@ -430,7 +431,7 @@ export default {
         { title: 'Exporte e execute', body: 'Baixe a receita no formato exigido e mantenha a rastreabilidade no talhão.' },
       ],
       gallery: [
-        { alt: 'Personalização real de zonas de manejo na FarmIA com cortes, limpeza e suavização', caption: 'Recortes, limpeza e suavização para ajustar o zoneamento sem refazer a fonte.' },
+        { alt: 'Personalização real de zonas de manejo na FarmIA com recortes, limpeza e suavização', caption: 'Recortes, limpeza e suavização para ajustar o zoneamento sem refazer a fonte.' },
         { alt: 'Prescrição real da FarmIA com uma grade de microparcelas e uma faixa fixa sobre o talhão', caption: 'Crie ensaios em minutos: gere uma grade ou desenhe uma faixa fixa diretamente sobre o talhão.' },
       ],
       roles: [
@@ -553,20 +554,20 @@ export default {
       shortDescription: 'Planeje e controle a operação produtiva, administrativa e financeira.',
       seoDescription: 'Gestão da FarmIA: planejamento agrícola, acompanhamento operacional, administração, Documentos IA e resultados financeiros em um só módulo.',
       heroTitle: 'Planeje a operação e acompanhe os resultados com menos trabalho manual.',
-      heroBody: 'A Gestão reúne planejamento agrícola, acompanhamento, administração e resultados próprios para que a empresa trabalhe com mais organização e visibilidade.',
-      heroImage: { alt: 'Dashboard real da Gestão na FarmIA com resumo operacional, administrativo e financeiro' },
+      heroBody: 'A Gestão reúne planejamento agrícola, acompanhamento, administração e resultados para que a empresa trabalhe com mais organização e visibilidade.',
+      heroImage: { alt: 'Painel real da Gestão na FarmIA com resumo operacional, administrativo e financeiro' },
       tasks: [
         { title: 'Planejar a safra', body: 'Organize culturas, operações, insumos e objetivos antes de executar.' },
         { title: 'Acompanhar operação e administração', body: 'Registre avanços, documentos, movimentações e compromissos com mais rastreabilidade.' },
-        { title: 'Revisar os resultados próprios', body: 'Compare o planejado com o realizado e obtenha uma leitura econômica da gestão.' },
+        { title: 'Revisar os seus resultados', body: 'Compare o planejado com o realizado e obtenha uma leitura econômica da operação.' },
       ],
       workflow: [
         { title: 'Planeje', body: 'Defina o cenário produtivo, as operações e os recursos esperados.' },
         { title: 'Registre e controle', body: 'Atualize operações, documentos e movimentações à medida que a safra avança.' },
-        { title: 'Revise os resultados', body: 'Compare plano e realidade para corrigir desvios e preparar a próxima decisão.' },
+        { title: 'Revise os resultados', body: 'Compare o planejado com o realizado para corrigir desvios e preparar a próxima decisão.' },
       ],
       gallery: [
-        { alt: 'Carregamento real de notas fiscais e romaneios nos Documentos IA da FarmIA, com revisão humana', caption: 'Os Documentos IA reduzem a digitação manual; a equipe revisa antes de confirmar.' },
+        { alt: 'Envio real de notas fiscais e romaneios nos Documentos IA da FarmIA, com revisão humana', caption: 'Os Documentos IA reduzem a digitação manual; a equipe revisa antes de confirmar.' },
         { alt: 'Acompanhamento real do planejamento e das operações na Gestão da FarmIA', caption: 'Planejamento e execução visíveis em um mesmo percurso da Gestão.' },
       ],
       roles: [

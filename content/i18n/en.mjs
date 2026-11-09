@@ -62,6 +62,7 @@ export default {
       contact: 'Contact',
       faq: 'FAQ',
       privacy: 'Privacy',
+      legal: 'Trade name of CACICU 26 S.A.',
     },
     store: {
       label: 'Download FarmIA Mobile',
@@ -137,7 +138,7 @@ export default {
     journey: {
       eyebrow: 'One workflow, end to end',
       title: 'From a signal in the field to a decision with context.',
-      body: 'Information stays connected in FarmIA: the team observes, validates, acts and learns without rebuilding the story across maps, messages and spreadsheets.',
+      body: 'Information stays connected in FarmIA: the team observes, validates, acts and learns without piecing the story back together from maps, messages and spreadsheets.',
       observe: {
         phase: 'Observe',
         zoom: 'four satellite images of the same field in FarmIA',
@@ -199,7 +200,7 @@ export default {
     mobile: {
       eyebrow: 'FarmIA Mobile',
       title: 'Take FarmIA to the field.',
-      body: 'Check fields and imagery and record geotagged observations from your phone.',
+      body: 'View fields and imagery and record geotagged observations from your phone.',
     },
     intelligence: {
       eyebrow: 'AI assistance, agronomic decisions',
@@ -245,7 +246,7 @@ export default {
     start: {
       eyebrow: 'Onboarding',
       title: 'Getting started is simple.',
-      body: 'We start from how your business works today and move first on what can add the most value.',
+      body: 'We start from how your business works today and begin with what can add the most value.',
       steps: [
         { title: 'We learn about your operation', body: 'A 30-minute meeting to understand your teams, information and priority decisions.' },
         { title: 'We prioritize modules and data', body: 'We set a concrete starting point based on your business’s needs.' },
@@ -294,7 +295,7 @@ export default {
         { question: 'What information can I centralize in FarmIA?', answer: 'Technical, production, operational and financial information: fields, seasons, maps, satellite imagery, scouting, prescriptions, documents, costs and results.' },
         { question: 'Who is the platform for?', answer: 'For leadership, growers and advisors who need to work from the same picture without rebuilding information across files, messages and spreadsheets.' },
         { question: 'Does FarmIA replace the agronomist’s judgment?', answer: 'No. FarmIA organizes information, connects evidence and offers suggestions. The professional reviews the context, validates it and makes the decision.' },
-        { question: 'Does FarmIA work on a phone and in the field?', answer: 'Yes. The platform combines the web and a mobile app to check fields and imagery and record geotagged observations during field work.' },
+        { question: 'Does FarmIA work on a phone and in the field?', answer: 'Yes. The platform combines the web and a mobile app to view fields and imagery and record geotagged observations during field work.' },
         { question: 'What does implementation look like?', answer: 'First we get to know your operation and your priority modules. Then we organize the initial information and support your team through the rollout.' },
         { question: 'Can I see FarmIA before deciding?', answer: 'Yes. We schedule a personalized demo focused on your business and on the decisions that take up most of your team’s time today.' },
       ],
@@ -302,7 +303,7 @@ export default {
   },
 
   groups: {
-    understand: { name: 'Understand', description: 'Turn maps, imagery and weather into a clearer read of every field.' },
+    understand: { name: 'Understand', description: 'Turn maps, imagery and weather into a clearer read on every field.' },
     'plan-act': { name: 'Plan and act', description: 'Turn the diagnosis into rates and record what actually happens in the field.' },
     soil: { name: 'Soil', description: 'Keep the soil’s history and use it to decide with context across seasons.' },
     manage: { name: 'Manage', description: 'Plan and control the production, administrative and financial operation.' },
@@ -422,7 +423,7 @@ export default {
       tasks: [
         { title: 'Generate and customize zones', body: 'Start from existing maps and easily adjust the number of zones, clipping, cleanup and smoothing.' },
         { title: 'Set up trials easily', body: 'Add microplots, strips or product-versus-control comparisons within the same workflow.' },
-        { title: 'Deliver usable rates', body: 'Set rates and export compatible formats to take the decision to the machinery.' },
+        { title: 'Deliver usable rates', body: 'Set rates and export compatible formats to take the decision to the equipment.' },
       ],
       workflow: [
         { title: 'Choose the base', body: 'Select the map or source that best represents the prescription’s goal.' },
@@ -430,7 +431,7 @@ export default {
         { title: 'Export and apply', body: 'Download the prescription in the required format and keep its traceability in the field.' },
       ],
       gallery: [
-        { alt: 'Real management zone customization in FarmIA with cuts, cleanup and smoothing', caption: 'Clipping, cleanup and smoothing to fine-tune the zoning without redoing the source.' },
+        { alt: 'Real management zone customization in FarmIA with clipping, cleanup and smoothing', caption: 'Clipping, cleanup and smoothing to fine-tune the zoning without redoing the source.' },
         { alt: 'Real FarmIA prescription with a microplot grid and a fixed strip over the field', caption: 'Set up trials in minutes: generate a grid or draw a fixed strip right on the field.' },
       ],
       roles: [
@@ -459,7 +460,7 @@ export default {
         { title: 'Share and export the follow-up', body: 'The Scouting center lets you filter notes and export to Excel or a report by field.' },
       ],
       workflow: [
-        { title: 'Find your spot in the field', body: 'Open the field in FarmIA Mobile and see your position while you work.' },
+        { title: 'See where you are in the field', body: 'Open the field in FarmIA Mobile and see your position while you work.' },
         { title: 'Record the observation', body: 'Choose the type, add a photo or dictate the note to cut down on typing.' },
         { title: 'Review as a team', body: 'The note stays geotagged and available for follow-up on the platform.' },
       ],
@@ -553,12 +554,12 @@ export default {
       shortDescription: 'Plan and control the production, administrative and financial operation.',
       seoDescription: 'FarmIA Management: farm planning, operations tracking, administration, AI documents and financial results in a single module.',
       heroTitle: 'Plan the operation and track its results with less manual work.',
-      heroBody: 'Management brings together farm planning, tracking, administration and your own results so the business runs with more order and visibility.',
+      heroBody: 'Management brings together farm planning, tracking, administration and results so the business runs with more order and visibility.',
       heroImage: { alt: 'Real Management dashboard in FarmIA with an operational, administrative and financial summary' },
       tasks: [
         { title: 'Plan the season', body: 'Organize crops, field operations, inputs and goals before execution.' },
         { title: 'Track operations and admin', body: 'Record progress, documents, transactions and commitments with more traceability.' },
-        { title: 'Review your own results', body: 'Compare the plan with what actually happened and get a financial read of the operation.' },
+        { title: 'Review your results', body: 'Compare the plan with what actually happened and get a financial read of the operation.' },
       ],
       workflow: [
         { title: 'Plan', body: 'Set the production scenario, field operations and expected resources.' },
