@@ -23,7 +23,7 @@ test('keeps commercial actions separate from the app utility', () => {
   assert.equal(bookingLinks.length, 4)
   assert.ok(bookingLinks.every(([, href]) => href === bookingUrl))
   assert.ok(bookingLinks.every(([link]) => /target="_blank"/.test(link) && /rel="noopener noreferrer"/.test(link)))
-  assert.match(html, /https:\/\/wa\.me\/5491156592528\?text=/)
+  assert.match(html, /https:\/\/wa\.me\/5492216410020\?text=/)
   assert.match(html, /class="[^"]*button--app[^"]*"[^>]*href="https:\/\/app\.farmiasolutions\.com"[^>]*>\s*Ir a la app\s*</)
   assert.doesNotMatch(html, />\s*Iniciar sesión\s*</)
 })

@@ -186,7 +186,7 @@ test('generated module pages expose unique SEO metadata and complete commercial 
     assert.equal(bookingLinks.length, 3, `${module.slug} should expose scheduling in header, hero, and final CTA`)
     assert.ok(bookingLinks.every(([, href]) => href === bookingUrl))
     assert.ok(bookingLinks.every(([link]) => /target="_blank"/.test(link) && /rel="noopener noreferrer"/.test(link)))
-    assert.match(html, /https:\/\/wa\.me\/5491156592528\?text=/)
+    assert.match(html, /https:\/\/wa\.me\/5492216410020\?text=/)
     assert.match(html, /https:\/\/app\.farmiasolutions\.com/)
     assert.match(html, />Ir a la app</)
     assert.doesNotMatch(html, />Iniciar sesión</)
