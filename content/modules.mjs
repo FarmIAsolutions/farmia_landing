@@ -12,7 +12,7 @@ export const site = {
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.farmia.mobile',
   formspreeUrl: 'https://formspree.io/f/maqbggyl',
   privacyUrl: 'https://app.farmiasolutions.com/privacidad',
-  whatsappNumber: '5491156592528',
+  whatsappNumber: '5492216410020',
   email: 'administracion@farmiasolutions.com',
   instagramUrl: 'https://www.instagram.com/farmiasolutions/',
   linkedinUrl: 'https://www.linkedin.com/company/farmiasolutions/',
